@@ -64,3 +64,33 @@
     height: 100%;
     width: 100%;
 }
+
+// Markdown split view styles
+.file-editor-split {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+
+    &__editor {
+        flex: 1;
+        overflow: hidden;
+        min-width: 0;
+    }
+
+    &__preview {
+        flex: 1;
+        overflow: auto;
+        padding: 16px 24px;
+        border-left: 1px solid #d2d2d2;
+        min-width: 0;
+        background: #ffffff;
+    }
+}
+
+// View mode toggle in header for markdown files
+.file-editor-view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 8px;
+}

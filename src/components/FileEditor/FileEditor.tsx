@@ -4,10 +4,15 @@ import Editor, { OnMount } from '@monaco-editor/react';
 import { Button } from "@patternfly/react-core/dist/esm/components/Button/index.js";
 import { Spinner } from "@patternfly/react-core/dist/esm/components/Spinner/index.js";
 import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
+import { ToggleGroup, ToggleGroupItem } from "@patternfly/react-core/dist/esm/components/ToggleGroup/index.js";
 import { TimesIcon } from "@patternfly/react-icons/dist/esm/icons/times-icon.js";
 import { SaveIcon } from "@patternfly/react-icons/dist/esm/icons/save-icon.js";
+import { CodeIcon } from "@patternfly/react-icons/dist/esm/icons/code-icon.js";
+import { ColumnsIcon } from "@patternfly/react-icons/dist/esm/icons/columns-icon.js";
+import { EyeIcon } from "@patternfly/react-icons/dist/esm/icons/eye-icon.js";
 import { useFileBrowser } from '../../store/FileBrowserContext';
 import { readFile, writeFile } from '../../api/cockpit-fs';
+import { MarkdownViewer } from '../MarkdownViewer/MarkdownViewer';
 import './file-editor.scss';
 
 const _ = cockpit.gettext;
@@ -24,6 +29,8 @@ const LANG_MAP: Record<string, string> = {
     dockerfile: "dockerfile", makefile: "makefile",
 };
 
+type MdViewMode = 'edit' | 'split' | 'preview';
+
 function getLanguage(filePath: string): string {
     const name = filePath.split('/').pop() || '';
     const lower = name.toLowerCase();
@@ -34,6 +41,11 @@ function getLanguage(filePath: string): string {
 
     const ext = name.split('.').pop()?.toLowerCase() || '';
     return LANG_MAP[ext] || 'plaintext';
+}
+
+function isMarkdown(filePath: string): boolean {
+    const ext = filePath.split('.').pop()?.toLowerCase() || '';
+    return ext === 'md' || ext === 'markdown';
 }
 
 interface FileEditorProps {
@@ -47,10 +59,12 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [saving, setSaving] = useState(false);
+    const [mdViewMode, setMdViewMode] = useState<MdViewMode>('split');
     const editorRef = useRef<any>(null);
 
     const isModified = content !== originalContent;
     const language = getLanguage(path);
+    const isMd = isMarkdown(path);
 
     // Load file content
     useEffect(() => {
@@ -109,6 +123,88 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
         setContent(value || '');
     };
 
+    const showEditor = !isMd || mdViewMode === 'edit' || mdViewMode === 'split';
+    const showPreview = isMd && (mdViewMode === 'preview' || mdViewMode === 'split');
+
+    const renderEditorArea = () => {
+        if (loading) {
+            return (
+                <div className="file-editor-loading">
+                    <Spinner size="xl" />
+                </div>
+            );
+        }
+
+        if (error) {
+            return (
+                <Alert variant="danger" title={_("Error loading file")} isInline>
+                    {error}
+                </Alert>
+            );
+        }
+
+        // Markdown split/preview modes
+        if (isMd && (showEditor || showPreview)) {
+            if (mdViewMode === 'preview') {
+                return (
+                    <div className="file-editor-split__preview" style={{ flex: 1, borderLeft: 'none' }}>
+                        <MarkdownViewer content={content} />
+                    </div>
+                );
+            }
+
+            if (mdViewMode === 'split') {
+                return (
+                    <div className="file-editor-split">
+                        <div className="file-editor-split__editor">
+                            <Editor
+                                height="100%"
+                                language={language}
+                                value={content}
+                                onChange={handleEditorChange}
+                                onMount={handleEditorMount}
+                                theme="vs-light"
+                                options={{
+                                    minimap: { enabled: false },
+                                    fontSize: 14,
+                                    wordWrap: 'on',
+                                    scrollBeyondLastLine: false,
+                                    automaticLayout: true,
+                                    tabSize: 4,
+                                    insertSpaces: true,
+                                }}
+                            />
+                        </div>
+                        <div className="file-editor-split__preview">
+                            <MarkdownViewer content={content} />
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        // Default: editor only (for non-md files and md "edit" mode)
+        return (
+            <Editor
+                height="100%"
+                language={language}
+                value={content}
+                onChange={handleEditorChange}
+                onMount={handleEditorMount}
+                theme="vs-light"
+                options={{
+                    minimap: { enabled: false },
+                    fontSize: 14,
+                    wordWrap: 'on',
+                    scrollBeyondLastLine: false,
+                    automaticLayout: true,
+                    tabSize: 4,
+                    insertSpaces: true,
+                }}
+            />
+        );
+    };
+
     return (
         <div className="file-editor-overlay">
             <div className="file-editor-header">
@@ -117,6 +213,33 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
                     {isModified && <span className="file-editor-header__modified"> ({_("modified")})</span>}
                 </div>
                 <div className="file-editor-header__actions">
+                    {isMd && (
+                        <div className="file-editor-view-toggle">
+                            <ToggleGroup aria-label={_("Markdown view mode")}>
+                                <ToggleGroupItem
+                                    icon={<CodeIcon />}
+                                    text={_("Edit")}
+                                    aria-label={_("Edit only")}
+                                    isSelected={mdViewMode === 'edit'}
+                                    onChange={() => setMdViewMode('edit')}
+                                />
+                                <ToggleGroupItem
+                                    icon={<ColumnsIcon />}
+                                    text={_("Split")}
+                                    aria-label={_("Split view")}
+                                    isSelected={mdViewMode === 'split'}
+                                    onChange={() => setMdViewMode('split')}
+                                />
+                                <ToggleGroupItem
+                                    icon={<EyeIcon />}
+                                    text={_("Preview")}
+                                    aria-label={_("Preview only")}
+                                    isSelected={mdViewMode === 'preview'}
+                                    onChange={() => setMdViewMode('preview')}
+                                />
+                            </ToggleGroup>
+                        </div>
+                    )}
                     <Button
                         variant="primary"
                         icon={<SaveIcon />}
@@ -137,35 +260,7 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
                 </div>
             </div>
             <div className="file-editor-body">
-                {loading && (
-                    <div className="file-editor-loading">
-                        <Spinner size="xl" />
-                    </div>
-                )}
-                {error && !loading && (
-                    <Alert variant="danger" title={_("Error loading file")} isInline>
-                        {error}
-                    </Alert>
-                )}
-                {!loading && !error && (
-                    <Editor
-                        height="100%"
-                        language={language}
-                        value={content}
-                        onChange={handleEditorChange}
-                        onMount={handleEditorMount}
-                        theme="vs-light"
-                        options={{
-                            minimap: { enabled: false },
-                            fontSize: 14,
-                            wordWrap: 'on',
-                            scrollBeyondLastLine: false,
-                            automaticLayout: true,
-                            tabSize: 4,
-                            insertSpaces: true,
-                        }}
-                    />
-                )}
+                {renderEditorArea()}
             </div>
         </div>
     );
