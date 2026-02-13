@@ -1,0 +1,492 @@
+# Turkish translation for cockpit-filebrowser
+# Copyright (C) 2026 cockpit-filebrowser developers
+# This file is distributed under the same license as the cockpit-filebrowser package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cockpit-filebrowser 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"PO-Revision-Date: 2026-02-14 00:00+0300\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "Dosya Yöneticisi"
+
+#: src/components/Sidebar/Sidebar.tsx:33
+msgid "Home"
+msgstr "Ana Dizin"
+
+#: src/components/Sidebar/Sidebar.tsx:34
+msgid "Root"
+msgstr "Kök"
+
+#: src/components/Sidebar/Sidebar.tsx:68
+msgid "Sidebar navigation"
+msgstr "Kenar çubuğu gezintisi"
+
+#: src/components/Sidebar/Sidebar.tsx:69
+msgid "Quick Access"
+msgstr "Hızlı Erişim"
+
+#: src/components/Sidebar/Sidebar.tsx:85
+msgid "Bookmarks"
+msgstr "Yer İmleri"
+
+#: src/components/Sidebar/Sidebar.tsx:89
+msgid "No bookmarks yet"
+msgstr "Henüz yer imi yok"
+
+#: src/components/Sidebar/Sidebar.tsx:112
+msgid "Remove bookmark"
+msgstr "Yer imini kaldır"
+
+#: src/components/Sidebar/Sidebar.tsx:131
+msgid "Bookmark current"
+msgstr "Geçerli dizini yer imlerine ekle"
+
+#: src/components/FileEditor/FileEditor.tsx:140
+msgid "Error loading file"
+msgstr "Dosya yüklenirken hata oluştu"
+
+#: src/components/FileEditor/FileEditor.tsx:213
+msgid "modified"
+msgstr "değiştirildi"
+
+#: src/components/FileEditor/FileEditor.tsx:218
+msgid "Markdown view mode"
+msgstr "Markdown görünüm modu"
+
+#: src/components/FileEditor/FileEditor.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:180
+msgid "Edit"
+msgstr "Düzenle"
+
+#: src/components/FileEditor/FileEditor.tsx:222
+msgid "Edit only"
+msgstr "Yalnızca düzenleme"
+
+#: src/components/FileEditor/FileEditor.tsx:228
+msgid "Split"
+msgstr "Bölünmüş"
+
+#: src/components/FileEditor/FileEditor.tsx:229
+msgid "Split view"
+msgstr "Bölünmüş görünüm"
+
+#: src/components/FileEditor/FileEditor.tsx:235
+msgid "Preview"
+msgstr "Önizleme"
+
+#: src/components/FileEditor/FileEditor.tsx:236
+msgid "Preview only"
+msgstr "Yalnızca önizleme"
+
+#: src/components/FileEditor/FileEditor.tsx:251
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/components/FileEditor/FileEditor.tsx:256
+msgid "Close editor"
+msgstr "Düzenleyiciyi kapat"
+
+#: src/components/Toolbar/Toolbar.tsx:171
+msgid "Go back"
+msgstr "Geri git"
+
+#: src/components/Toolbar/Toolbar.tsx:182
+msgid "Go forward"
+msgstr "İleri git"
+
+#: src/components/Toolbar/Toolbar.tsx:193
+msgid "Go up"
+msgstr "Üst dizine git"
+
+#: src/components/Toolbar/Toolbar.tsx:203
+msgid "Refresh"
+msgstr "Yenile"
+
+#: src/components/Toolbar/Toolbar.tsx:219
+msgid "View mode"
+msgstr "Görünüm modu"
+
+#: src/components/Toolbar/Toolbar.tsx:222
+msgid "Table view"
+msgstr "Tablo görünümü"
+
+#: src/components/Toolbar/Toolbar.tsx:228
+msgid "Grid view"
+msgstr "Izgara görünümü"
+
+#: src/components/Toolbar/Toolbar.tsx:240
+msgid "Show hidden files"
+msgstr "Gizli dosyaları göster"
+
+#: src/components/Toolbar/Toolbar.tsx:257
+#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Dialogs/CreateDialog.tsx:27
+msgid "New File"
+msgstr "Yeni Dosya"
+
+#: src/components/Toolbar/Toolbar.tsx:267
+msgid "New Folder"
+msgstr "Yeni Klasör"
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Uploading..."
+msgstr "Yükleniyor..."
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Upload"
+msgstr "Yükle"
+
+#: src/components/Toolbar/Toolbar.tsx:291
+msgid "Downloading..."
+msgstr "İndiriliyor..."
+
+#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/ContextMenu/ContextMenu.tsx:215
+msgid "Download"
+msgstr "İndir"
+
+#: src/components/Toolbar/Toolbar.tsx:300
+msgid "Search files..."
+msgstr "Dosyaları ara..."
+
+#: src/components/Toolbar/Toolbar.tsx:306
+msgid "Search files"
+msgstr "Dosyaları ara"
+
+#: src/components/Toolbar/PathBar.tsx:72
+msgid "Path input"
+msgstr "Yol girişi"
+
+#: src/components/Toolbar/PathBar.tsx:78
+msgid "Cancel editing"
+msgstr "Düzenlemeyi iptal et"
+
+#: src/components/Toolbar/PathBar.tsx:111
+msgid "Edit path"
+msgstr "Yolu düzenle"
+
+#: src/components/ContextMenu/ContextMenu.tsx:179
+msgid "Open"
+msgstr "Aç"
+
+#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/Dialogs/CreateDialog.tsx:28
+msgid "New Directory"
+msgstr "Yeni Dizin"
+
+#: src/components/ContextMenu/ContextMenu.tsx:188
+msgid "New Symlink"
+msgstr "Yeni Sembolik Bağlantı"
+
+#: src/components/ContextMenu/ContextMenu.tsx:194
+msgid "Cut"
+msgstr "Kes"
+
+#: src/components/ContextMenu/ContextMenu.tsx:195
+msgid "Copy"
+msgstr "Kopyala"
+
+#: src/components/ContextMenu/ContextMenu.tsx:199
+msgid "Paste"
+msgstr "Yapıştır"
+
+#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/Dialogs/RenameDialog.tsx:87
+msgid "Rename"
+msgstr "Yeniden Adlandır"
+
+#: src/components/ContextMenu/ContextMenu.tsx:207
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "Sil"
+
+#: src/components/ContextMenu/ContextMenu.tsx:221
+msgid "Download as Archive"
+msgstr "Arşiv olarak indir"
+
+#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/Properties/PropertiesPanel.tsx:111
+#: src/components/Properties/PropertiesPanel.tsx:129
+msgid "Properties"
+msgstr "Özellikler"
+
+#: src/components/ContextMenu/ContextMenu.tsx:231
+msgid "Bookmark This Folder"
+msgstr "Bu Klasörü Yer İmlerine Ekle"
+
+#: src/components/Search/SearchPanel.tsx:113
+msgid "Search mode"
+msgstr "Arama modu"
+
+#: src/components/Search/SearchPanel.tsx:115
+msgid "Filename"
+msgstr "Dosya adı"
+
+#: src/components/Search/SearchPanel.tsx:120
+msgid "Content"
+msgstr "İçerik"
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search by filename..."
+msgstr "Dosya adına göre ara..."
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search file contents..."
+msgstr "Dosya içeriğinde ara..."
+
+#: src/components/Search/SearchPanel.tsx:134
+msgid "Search"
+msgstr "Ara"
+
+#: src/components/Search/SearchPanel.tsx:142
+msgid "Close search"
+msgstr "Aramayı kapat"
+
+#: src/components/Search/SearchPanel.tsx:152
+msgid "Searching"
+msgstr "Aranıyor"
+
+#: src/components/Search/SearchPanel.tsx:153
+msgid "Searching..."
+msgstr "Aranıyor..."
+
+#: src/components/Search/SearchPanel.tsx:159
+msgid "No results found"
+msgstr "Sonuç bulunamadı"
+
+#: src/components/Search/SearchPanel.tsx:165
+msgid "No files matched your search query."
+msgstr "Arama sorgunuzla eşleşen dosya bulunamadı."
+
+#: src/components/Search/SearchPanel.tsx:174
+msgid "Showing first 200 results"
+msgstr "İlk 200 sonuç gösteriliyor"
+
+#: src/components/Search/SearchPanel.tsx:175
+msgid "$0 results"
+msgstr "$0 sonuç"
+
+#: src/components/Properties/PropertiesPanel.tsx:135
+msgid "Failed to load properties"
+msgstr "Özellikler yüklenemedi"
+
+#: src/components/Properties/PropertiesPanel.tsx:157
+#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/Dialogs/CreateDialog.tsx:100
+msgid "Name"
+msgstr "Ad"
+
+#: src/components/Properties/PropertiesPanel.tsx:162
+msgid "Full Path"
+msgstr "Tam Yol"
+
+#: src/components/Properties/PropertiesPanel.tsx:169
+msgid "Type"
+msgstr "Tür"
+
+#: src/components/Properties/PropertiesPanel.tsx:174
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Size"
+msgstr "Boyut"
+
+#: src/components/Properties/PropertiesPanel.tsx:176
+msgid "bytes"
+msgstr "bayt"
+
+#: src/components/Properties/PropertiesPanel.tsx:181
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Modified"
+msgstr "Değiştirilme"
+
+#: src/components/Properties/PropertiesPanel.tsx:186
+msgid "Accessed"
+msgstr "Erişilme"
+
+#: src/components/Properties/PropertiesPanel.tsx:191
+msgid "Created"
+msgstr "Oluşturulma"
+
+#: src/components/Properties/PropertiesPanel.tsx:197
+#: src/components/Properties/PropertiesPanel.tsx:207
+#: src/components/Properties/PermissionEditor.tsx:49
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Owner"
+msgstr "Sahip"
+
+#: src/components/Properties/PropertiesPanel.tsx:216
+#: src/components/Properties/PropertiesPanel.tsx:226
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Group"
+msgstr "Grup"
+
+#: src/components/Properties/PropertiesPanel.tsx:242
+msgid "Apply Ownership"
+msgstr "Sahipliği Uygula"
+
+#: src/components/Properties/PropertiesPanel.tsx:245
+msgid "Ownership updated"
+msgstr "Sahiplik güncellendi"
+
+#: src/components/Properties/PropertiesPanel.tsx:248
+msgid "Failed to update ownership"
+msgstr "Sahiplik güncellenemedi"
+
+#: src/components/Properties/PropertiesPanel.tsx:259
+msgid "Link Target"
+msgstr "Bağlantı Hedefi"
+
+#: src/components/Properties/PropertiesPanel.tsx:268
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Permissions"
+msgstr "İzinler"
+
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Other"
+msgstr "Diğer"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Read"
+msgstr "Okuma"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Write"
+msgstr "Yazma"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Execute"
+msgstr "Çalıştırma"
+
+#: src/components/Properties/PermissionEditor.tsx:141
+msgid "Octal permissions"
+msgstr "Sekizlik izinler"
+
+#: src/components/Properties/PermissionEditor.tsx:152
+msgid "Apply"
+msgstr "Uygula"
+
+#: src/components/Properties/PermissionEditor.tsx:157
+msgid "Permissions updated"
+msgstr "İzinler güncellendi"
+
+#: src/components/Properties/PermissionEditor.tsx:160
+msgid "Failed to update permissions"
+msgstr "İzinler güncellenemedi"
+
+#: src/components/FileBrowser/FileTable.tsx:196
+#: src/components/FileBrowser/FileGrid.tsx:124
+msgid "No files"
+msgstr "Dosya yok"
+
+#: src/components/FileBrowser/FileTable.tsx:201
+#: src/components/FileBrowser/FileGrid.tsx:129
+msgid "This directory is empty."
+msgstr "Bu dizin boş."
+
+#: src/components/FileBrowser/FileTable.tsx:234
+msgid "File listing"
+msgstr "Dosya listesi"
+
+#: src/components/FileBrowser/FileTable.tsx:242
+msgid "Select all"
+msgstr "Tümünü seç"
+
+#: src/components/FileBrowser/FileBrowser.tsx:19
+msgid "Loading"
+msgstr "Yükleniyor"
+
+#: src/components/FileBrowser/FileBrowser.tsx:27
+msgid "Error loading directory"
+msgstr "Dizin yüklenirken hata oluştu"
+
+#: src/components/Dialogs/DeleteDialog.tsx:59
+msgid "Are you sure you want to delete"
+msgstr "Silmek istediğinizden emin misiniz"
+
+#: src/components/Dialogs/DeleteDialog.tsx:63
+msgid "This will permanently delete the directory and all its contents."
+msgstr "Bu işlem dizini ve tüm içeriğini kalıcı olarak silecektir."
+
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/components/Dialogs/CreateDialog.tsx:29
+msgid "New Symbolic Link"
+msgstr "Yeni Sembolik Bağlantı"
+
+#: src/components/Dialogs/CreateDialog.tsx:34
+#: src/components/Dialogs/RenameDialog.tsx:34
+msgid "Name cannot be empty"
+msgstr "Ad boş olamaz"
+
+#: src/components/Dialogs/CreateDialog.tsx:37
+#: src/components/Dialogs/RenameDialog.tsx:37
+msgid "Name cannot contain '/'"
+msgstr "Ad '/' içeremez"
+
+#: src/components/Dialogs/CreateDialog.tsx:40
+msgid "Target path cannot be empty"
+msgstr "Hedef yol boş olamaz"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "filename.txt"
+msgstr "dosyaadı.txt"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "new-folder"
+msgstr "yeni-klasör"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "link-name"
+msgstr "bağlantı-adı"
+
+#: src/components/Dialogs/CreateDialog.tsx:112
+msgid "Target path"
+msgstr "Hedef yol"
+
+#: src/components/Dialogs/CreateDialog.tsx:119
+msgid "/path/to/target"
+msgstr "/hedef/yol"
+
+#: src/components/Dialogs/CreateDialog.tsx:137
+#: src/components/Dialogs/RenameDialog.tsx:112
+msgid "OK"
+msgstr "Tamam"
+
+#: src/components/Dialogs/RenameDialog.tsx:89
+msgid "New name"
+msgstr "Yeni ad"
+
+#: src/components/Upload/UploadZone.tsx:134
+msgid "Drop files here to upload"
+msgstr "Yüklemek için dosyaları buraya sürükleyin"
+
+#: src/components/Upload/UploadZone.tsx:144
+msgid "Uploading $0 of $1 files..."
+msgstr "$1 dosyadan $0 tanesi yükleniyor..."
+
+#: src/components/Upload/UploadZone.tsx:145
+msgid "$0 of $1"
+msgstr "$0 / $1"
+
+#: src/components/Upload/UploadZone.tsx:154
+msgid "Upload failed"
+msgstr "Yükleme başarısız"
+
+#: src/components/Upload/UploadZone.tsx:160
+msgid "Close"
+msgstr "Kapat"

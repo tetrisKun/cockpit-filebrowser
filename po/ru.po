@@ -1,0 +1,492 @@
+# Russian translation for cockpit-filebrowser
+# Copyright (C) 2026 cockpit-filebrowser developers
+# This file is distributed under the same license as the cockpit-filebrowser package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cockpit-filebrowser 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"PO-Revision-Date: 2026-02-14 00:00+0300\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "Файловый менеджер"
+
+#: src/components/Sidebar/Sidebar.tsx:33
+msgid "Home"
+msgstr "Домой"
+
+#: src/components/Sidebar/Sidebar.tsx:34
+msgid "Root"
+msgstr "Корень"
+
+#: src/components/Sidebar/Sidebar.tsx:68
+msgid "Sidebar navigation"
+msgstr "Навигация боковой панели"
+
+#: src/components/Sidebar/Sidebar.tsx:69
+msgid "Quick Access"
+msgstr "Быстрый доступ"
+
+#: src/components/Sidebar/Sidebar.tsx:85
+msgid "Bookmarks"
+msgstr "Закладки"
+
+#: src/components/Sidebar/Sidebar.tsx:89
+msgid "No bookmarks yet"
+msgstr "Закладок пока нет"
+
+#: src/components/Sidebar/Sidebar.tsx:112
+msgid "Remove bookmark"
+msgstr "Удалить закладку"
+
+#: src/components/Sidebar/Sidebar.tsx:131
+msgid "Bookmark current"
+msgstr "Добавить в закладки"
+
+#: src/components/FileEditor/FileEditor.tsx:140
+msgid "Error loading file"
+msgstr "Ошибка загрузки файла"
+
+#: src/components/FileEditor/FileEditor.tsx:213
+msgid "modified"
+msgstr "изменён"
+
+#: src/components/FileEditor/FileEditor.tsx:218
+msgid "Markdown view mode"
+msgstr "Режим просмотра Markdown"
+
+#: src/components/FileEditor/FileEditor.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:180
+msgid "Edit"
+msgstr "Редактировать"
+
+#: src/components/FileEditor/FileEditor.tsx:222
+msgid "Edit only"
+msgstr "Только редактирование"
+
+#: src/components/FileEditor/FileEditor.tsx:228
+msgid "Split"
+msgstr "Разделить"
+
+#: src/components/FileEditor/FileEditor.tsx:229
+msgid "Split view"
+msgstr "Разделённый вид"
+
+#: src/components/FileEditor/FileEditor.tsx:235
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: src/components/FileEditor/FileEditor.tsx:236
+msgid "Preview only"
+msgstr "Только предпросмотр"
+
+#: src/components/FileEditor/FileEditor.tsx:251
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/components/FileEditor/FileEditor.tsx:256
+msgid "Close editor"
+msgstr "Закрыть редактор"
+
+#: src/components/Toolbar/Toolbar.tsx:171
+msgid "Go back"
+msgstr "Назад"
+
+#: src/components/Toolbar/Toolbar.tsx:182
+msgid "Go forward"
+msgstr "Вперёд"
+
+#: src/components/Toolbar/Toolbar.tsx:193
+msgid "Go up"
+msgstr "Вверх"
+
+#: src/components/Toolbar/Toolbar.tsx:203
+msgid "Refresh"
+msgstr "Обновить"
+
+#: src/components/Toolbar/Toolbar.tsx:219
+msgid "View mode"
+msgstr "Режим просмотра"
+
+#: src/components/Toolbar/Toolbar.tsx:222
+msgid "Table view"
+msgstr "Табличный вид"
+
+#: src/components/Toolbar/Toolbar.tsx:228
+msgid "Grid view"
+msgstr "Сетка"
+
+#: src/components/Toolbar/Toolbar.tsx:240
+msgid "Show hidden files"
+msgstr "Показать скрытые файлы"
+
+#: src/components/Toolbar/Toolbar.tsx:257
+#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Dialogs/CreateDialog.tsx:27
+msgid "New File"
+msgstr "Новый файл"
+
+#: src/components/Toolbar/Toolbar.tsx:267
+msgid "New Folder"
+msgstr "Новая папка"
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Uploading..."
+msgstr "Загрузка..."
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Upload"
+msgstr "Загрузить"
+
+#: src/components/Toolbar/Toolbar.tsx:291
+msgid "Downloading..."
+msgstr "Скачивание..."
+
+#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/ContextMenu/ContextMenu.tsx:215
+msgid "Download"
+msgstr "Скачать"
+
+#: src/components/Toolbar/Toolbar.tsx:300
+msgid "Search files..."
+msgstr "Поиск файлов..."
+
+#: src/components/Toolbar/Toolbar.tsx:306
+msgid "Search files"
+msgstr "Поиск файлов"
+
+#: src/components/Toolbar/PathBar.tsx:72
+msgid "Path input"
+msgstr "Ввод пути"
+
+#: src/components/Toolbar/PathBar.tsx:78
+msgid "Cancel editing"
+msgstr "Отменить редактирование"
+
+#: src/components/Toolbar/PathBar.tsx:111
+msgid "Edit path"
+msgstr "Редактировать путь"
+
+#: src/components/ContextMenu/ContextMenu.tsx:179
+msgid "Open"
+msgstr "Открыть"
+
+#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/Dialogs/CreateDialog.tsx:28
+msgid "New Directory"
+msgstr "Новый каталог"
+
+#: src/components/ContextMenu/ContextMenu.tsx:188
+msgid "New Symlink"
+msgstr "Новая символическая ссылка"
+
+#: src/components/ContextMenu/ContextMenu.tsx:194
+msgid "Cut"
+msgstr "Вырезать"
+
+#: src/components/ContextMenu/ContextMenu.tsx:195
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/components/ContextMenu/ContextMenu.tsx:199
+msgid "Paste"
+msgstr "Вставить"
+
+#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/Dialogs/RenameDialog.tsx:87
+msgid "Rename"
+msgstr "Переименовать"
+
+#: src/components/ContextMenu/ContextMenu.tsx:207
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/components/ContextMenu/ContextMenu.tsx:221
+msgid "Download as Archive"
+msgstr "Скачать как архив"
+
+#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/Properties/PropertiesPanel.tsx:111
+#: src/components/Properties/PropertiesPanel.tsx:129
+msgid "Properties"
+msgstr "Свойства"
+
+#: src/components/ContextMenu/ContextMenu.tsx:231
+msgid "Bookmark This Folder"
+msgstr "Добавить папку в закладки"
+
+#: src/components/Search/SearchPanel.tsx:113
+msgid "Search mode"
+msgstr "Режим поиска"
+
+#: src/components/Search/SearchPanel.tsx:115
+msgid "Filename"
+msgstr "Имя файла"
+
+#: src/components/Search/SearchPanel.tsx:120
+msgid "Content"
+msgstr "Содержимое"
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search by filename..."
+msgstr "Поиск по имени файла..."
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search file contents..."
+msgstr "Поиск по содержимому файлов..."
+
+#: src/components/Search/SearchPanel.tsx:134
+msgid "Search"
+msgstr "Поиск"
+
+#: src/components/Search/SearchPanel.tsx:142
+msgid "Close search"
+msgstr "Закрыть поиск"
+
+#: src/components/Search/SearchPanel.tsx:152
+msgid "Searching"
+msgstr "Идёт поиск"
+
+#: src/components/Search/SearchPanel.tsx:153
+msgid "Searching..."
+msgstr "Поиск..."
+
+#: src/components/Search/SearchPanel.tsx:159
+msgid "No results found"
+msgstr "Ничего не найдено"
+
+#: src/components/Search/SearchPanel.tsx:165
+msgid "No files matched your search query."
+msgstr "Нет файлов, соответствующих вашему запросу."
+
+#: src/components/Search/SearchPanel.tsx:174
+msgid "Showing first 200 results"
+msgstr "Показаны первые 200 результатов"
+
+#: src/components/Search/SearchPanel.tsx:175
+msgid "$0 results"
+msgstr "$0 результатов"
+
+#: src/components/Properties/PropertiesPanel.tsx:135
+msgid "Failed to load properties"
+msgstr "Не удалось загрузить свойства"
+
+#: src/components/Properties/PropertiesPanel.tsx:157
+#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/Dialogs/CreateDialog.tsx:100
+msgid "Name"
+msgstr "Имя"
+
+#: src/components/Properties/PropertiesPanel.tsx:162
+msgid "Full Path"
+msgstr "Полный путь"
+
+#: src/components/Properties/PropertiesPanel.tsx:169
+msgid "Type"
+msgstr "Тип"
+
+#: src/components/Properties/PropertiesPanel.tsx:174
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Size"
+msgstr "Размер"
+
+#: src/components/Properties/PropertiesPanel.tsx:176
+msgid "bytes"
+msgstr "байт"
+
+#: src/components/Properties/PropertiesPanel.tsx:181
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Modified"
+msgstr "Изменён"
+
+#: src/components/Properties/PropertiesPanel.tsx:186
+msgid "Accessed"
+msgstr "Доступ"
+
+#: src/components/Properties/PropertiesPanel.tsx:191
+msgid "Created"
+msgstr "Создан"
+
+#: src/components/Properties/PropertiesPanel.tsx:197
+#: src/components/Properties/PropertiesPanel.tsx:207
+#: src/components/Properties/PermissionEditor.tsx:49
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Owner"
+msgstr "Владелец"
+
+#: src/components/Properties/PropertiesPanel.tsx:216
+#: src/components/Properties/PropertiesPanel.tsx:226
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Group"
+msgstr "Группа"
+
+#: src/components/Properties/PropertiesPanel.tsx:242
+msgid "Apply Ownership"
+msgstr "Применить владение"
+
+#: src/components/Properties/PropertiesPanel.tsx:245
+msgid "Ownership updated"
+msgstr "Владение обновлено"
+
+#: src/components/Properties/PropertiesPanel.tsx:248
+msgid "Failed to update ownership"
+msgstr "Не удалось обновить владение"
+
+#: src/components/Properties/PropertiesPanel.tsx:259
+msgid "Link Target"
+msgstr "Цель ссылки"
+
+#: src/components/Properties/PropertiesPanel.tsx:268
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Permissions"
+msgstr "Права доступа"
+
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Other"
+msgstr "Остальные"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Read"
+msgstr "Чтение"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Write"
+msgstr "Запись"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Execute"
+msgstr "Выполнение"
+
+#: src/components/Properties/PermissionEditor.tsx:141
+msgid "Octal permissions"
+msgstr "Восьмеричные права"
+
+#: src/components/Properties/PermissionEditor.tsx:152
+msgid "Apply"
+msgstr "Применить"
+
+#: src/components/Properties/PermissionEditor.tsx:157
+msgid "Permissions updated"
+msgstr "Права доступа обновлены"
+
+#: src/components/Properties/PermissionEditor.tsx:160
+msgid "Failed to update permissions"
+msgstr "Не удалось обновить права доступа"
+
+#: src/components/FileBrowser/FileTable.tsx:196
+#: src/components/FileBrowser/FileGrid.tsx:124
+msgid "No files"
+msgstr "Нет файлов"
+
+#: src/components/FileBrowser/FileTable.tsx:201
+#: src/components/FileBrowser/FileGrid.tsx:129
+msgid "This directory is empty."
+msgstr "Этот каталог пуст."
+
+#: src/components/FileBrowser/FileTable.tsx:234
+msgid "File listing"
+msgstr "Список файлов"
+
+#: src/components/FileBrowser/FileTable.tsx:242
+msgid "Select all"
+msgstr "Выбрать все"
+
+#: src/components/FileBrowser/FileBrowser.tsx:19
+msgid "Loading"
+msgstr "Загрузка"
+
+#: src/components/FileBrowser/FileBrowser.tsx:27
+msgid "Error loading directory"
+msgstr "Ошибка загрузки каталога"
+
+#: src/components/Dialogs/DeleteDialog.tsx:59
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: src/components/Dialogs/DeleteDialog.tsx:63
+msgid "This will permanently delete the directory and all its contents."
+msgstr "Это действие безвозвратно удалит каталог и всё его содержимое."
+
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/components/Dialogs/CreateDialog.tsx:29
+msgid "New Symbolic Link"
+msgstr "Новая символическая ссылка"
+
+#: src/components/Dialogs/CreateDialog.tsx:34
+#: src/components/Dialogs/RenameDialog.tsx:34
+msgid "Name cannot be empty"
+msgstr "Имя не может быть пустым"
+
+#: src/components/Dialogs/CreateDialog.tsx:37
+#: src/components/Dialogs/RenameDialog.tsx:37
+msgid "Name cannot contain '/'"
+msgstr "Имя не может содержать '/'"
+
+#: src/components/Dialogs/CreateDialog.tsx:40
+msgid "Target path cannot be empty"
+msgstr "Целевой путь не может быть пустым"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "filename.txt"
+msgstr "имя_файла.txt"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "new-folder"
+msgstr "новая-папка"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "link-name"
+msgstr "имя-ссылки"
+
+#: src/components/Dialogs/CreateDialog.tsx:112
+msgid "Target path"
+msgstr "Целевой путь"
+
+#: src/components/Dialogs/CreateDialog.tsx:119
+msgid "/path/to/target"
+msgstr "/путь/к/цели"
+
+#: src/components/Dialogs/CreateDialog.tsx:137
+#: src/components/Dialogs/RenameDialog.tsx:112
+msgid "OK"
+msgstr "ОК"
+
+#: src/components/Dialogs/RenameDialog.tsx:89
+msgid "New name"
+msgstr "Новое имя"
+
+#: src/components/Upload/UploadZone.tsx:134
+msgid "Drop files here to upload"
+msgstr "Перетащите файлы сюда для загрузки"
+
+#: src/components/Upload/UploadZone.tsx:144
+msgid "Uploading $0 of $1 files..."
+msgstr "Загрузка файла $0 из $1..."
+
+#: src/components/Upload/UploadZone.tsx:145
+msgid "$0 of $1"
+msgstr "$0 из $1"
+
+#: src/components/Upload/UploadZone.tsx:154
+msgid "Upload failed"
+msgstr "Ошибка загрузки"
+
+#: src/components/Upload/UploadZone.tsx:160
+msgid "Close"
+msgstr "Закрыть"

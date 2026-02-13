@@ -1,0 +1,493 @@
+# Hebrew translation for cockpit-filebrowser
+# Copyright (C) 2026 cockpit-filebrowser developers
+# This file is distributed under the same license as the cockpit-filebrowser package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cockpit-filebrowser 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"PO-Revision-Date: 2026-02-14 00:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language-Direction: rtl\n"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "מנהל קבצים"
+
+#: src/components/Sidebar/Sidebar.tsx:33
+msgid "Home"
+msgstr "בית"
+
+#: src/components/Sidebar/Sidebar.tsx:34
+msgid "Root"
+msgstr "שורש"
+
+#: src/components/Sidebar/Sidebar.tsx:68
+msgid "Sidebar navigation"
+msgstr "ניווט בסרגל הצד"
+
+#: src/components/Sidebar/Sidebar.tsx:69
+msgid "Quick Access"
+msgstr "גישה מהירה"
+
+#: src/components/Sidebar/Sidebar.tsx:85
+msgid "Bookmarks"
+msgstr "סימניות"
+
+#: src/components/Sidebar/Sidebar.tsx:89
+msgid "No bookmarks yet"
+msgstr "אין סימניות עדיין"
+
+#: src/components/Sidebar/Sidebar.tsx:112
+msgid "Remove bookmark"
+msgstr "הסר סימנייה"
+
+#: src/components/Sidebar/Sidebar.tsx:131
+msgid "Bookmark current"
+msgstr "הוסף תיקייה נוכחית לסימניות"
+
+#: src/components/FileEditor/FileEditor.tsx:140
+msgid "Error loading file"
+msgstr "שגיאה בטעינת קובץ"
+
+#: src/components/FileEditor/FileEditor.tsx:213
+msgid "modified"
+msgstr "שונה"
+
+#: src/components/FileEditor/FileEditor.tsx:218
+msgid "Markdown view mode"
+msgstr "מצב תצוגת Markdown"
+
+#: src/components/FileEditor/FileEditor.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:180
+msgid "Edit"
+msgstr "עריכה"
+
+#: src/components/FileEditor/FileEditor.tsx:222
+msgid "Edit only"
+msgstr "עריכה בלבד"
+
+#: src/components/FileEditor/FileEditor.tsx:228
+msgid "Split"
+msgstr "מפוצל"
+
+#: src/components/FileEditor/FileEditor.tsx:229
+msgid "Split view"
+msgstr "תצוגה מפוצלת"
+
+#: src/components/FileEditor/FileEditor.tsx:235
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: src/components/FileEditor/FileEditor.tsx:236
+msgid "Preview only"
+msgstr "תצוגה מקדימה בלבד"
+
+#: src/components/FileEditor/FileEditor.tsx:251
+msgid "Save"
+msgstr "שמור"
+
+#: src/components/FileEditor/FileEditor.tsx:256
+msgid "Close editor"
+msgstr "סגור עורך"
+
+#: src/components/Toolbar/Toolbar.tsx:171
+msgid "Go back"
+msgstr "חזור אחורה"
+
+#: src/components/Toolbar/Toolbar.tsx:182
+msgid "Go forward"
+msgstr "התקדם קדימה"
+
+#: src/components/Toolbar/Toolbar.tsx:193
+msgid "Go up"
+msgstr "עלה למעלה"
+
+#: src/components/Toolbar/Toolbar.tsx:203
+msgid "Refresh"
+msgstr "רענן"
+
+#: src/components/Toolbar/Toolbar.tsx:219
+msgid "View mode"
+msgstr "מצב תצוגה"
+
+#: src/components/Toolbar/Toolbar.tsx:222
+msgid "Table view"
+msgstr "תצוגת טבלה"
+
+#: src/components/Toolbar/Toolbar.tsx:228
+msgid "Grid view"
+msgstr "תצוגת רשת"
+
+#: src/components/Toolbar/Toolbar.tsx:240
+msgid "Show hidden files"
+msgstr "הצג קבצים מוסתרים"
+
+#: src/components/Toolbar/Toolbar.tsx:257
+#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Dialogs/CreateDialog.tsx:27
+msgid "New File"
+msgstr "קובץ חדש"
+
+#: src/components/Toolbar/Toolbar.tsx:267
+msgid "New Folder"
+msgstr "תיקייה חדשה"
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Uploading..."
+msgstr "מעלה..."
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Upload"
+msgstr "העלאה"
+
+#: src/components/Toolbar/Toolbar.tsx:291
+msgid "Downloading..."
+msgstr "מוריד..."
+
+#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/ContextMenu/ContextMenu.tsx:215
+msgid "Download"
+msgstr "הורדה"
+
+#: src/components/Toolbar/Toolbar.tsx:300
+msgid "Search files..."
+msgstr "חיפוש קבצים..."
+
+#: src/components/Toolbar/Toolbar.tsx:306
+msgid "Search files"
+msgstr "חיפוש קבצים"
+
+#: src/components/Toolbar/PathBar.tsx:72
+msgid "Path input"
+msgstr "קלט נתיב"
+
+#: src/components/Toolbar/PathBar.tsx:78
+msgid "Cancel editing"
+msgstr "בטל עריכה"
+
+#: src/components/Toolbar/PathBar.tsx:111
+msgid "Edit path"
+msgstr "ערוך נתיב"
+
+#: src/components/ContextMenu/ContextMenu.tsx:179
+msgid "Open"
+msgstr "פתח"
+
+#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/Dialogs/CreateDialog.tsx:28
+msgid "New Directory"
+msgstr "תיקייה חדשה"
+
+#: src/components/ContextMenu/ContextMenu.tsx:188
+msgid "New Symlink"
+msgstr "קישור סמלי חדש"
+
+#: src/components/ContextMenu/ContextMenu.tsx:194
+msgid "Cut"
+msgstr "גזור"
+
+#: src/components/ContextMenu/ContextMenu.tsx:195
+msgid "Copy"
+msgstr "העתק"
+
+#: src/components/ContextMenu/ContextMenu.tsx:199
+msgid "Paste"
+msgstr "הדבק"
+
+#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/Dialogs/RenameDialog.tsx:87
+msgid "Rename"
+msgstr "שנה שם"
+
+#: src/components/ContextMenu/ContextMenu.tsx:207
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "מחק"
+
+#: src/components/ContextMenu/ContextMenu.tsx:221
+msgid "Download as Archive"
+msgstr "הורד כארכיון"
+
+#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/Properties/PropertiesPanel.tsx:111
+#: src/components/Properties/PropertiesPanel.tsx:129
+msgid "Properties"
+msgstr "מאפיינים"
+
+#: src/components/ContextMenu/ContextMenu.tsx:231
+msgid "Bookmark This Folder"
+msgstr "הוסף תיקייה זו לסימניות"
+
+#: src/components/Search/SearchPanel.tsx:113
+msgid "Search mode"
+msgstr "מצב חיפוש"
+
+#: src/components/Search/SearchPanel.tsx:115
+msgid "Filename"
+msgstr "שם קובץ"
+
+#: src/components/Search/SearchPanel.tsx:120
+msgid "Content"
+msgstr "תוכן"
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search by filename..."
+msgstr "חיפוש לפי שם קובץ..."
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search file contents..."
+msgstr "חיפוש בתוכן קבצים..."
+
+#: src/components/Search/SearchPanel.tsx:134
+msgid "Search"
+msgstr "חיפוש"
+
+#: src/components/Search/SearchPanel.tsx:142
+msgid "Close search"
+msgstr "סגור חיפוש"
+
+#: src/components/Search/SearchPanel.tsx:152
+msgid "Searching"
+msgstr "מחפש"
+
+#: src/components/Search/SearchPanel.tsx:153
+msgid "Searching..."
+msgstr "מחפש..."
+
+#: src/components/Search/SearchPanel.tsx:159
+msgid "No results found"
+msgstr "לא נמצאו תוצאות"
+
+#: src/components/Search/SearchPanel.tsx:165
+msgid "No files matched your search query."
+msgstr "לא נמצאו קבצים התואמים לשאילתת החיפוש."
+
+#: src/components/Search/SearchPanel.tsx:174
+msgid "Showing first 200 results"
+msgstr "מציג 200 תוצאות ראשונות"
+
+#: src/components/Search/SearchPanel.tsx:175
+msgid "$0 results"
+msgstr "$0 תוצאות"
+
+#: src/components/Properties/PropertiesPanel.tsx:135
+msgid "Failed to load properties"
+msgstr "טעינת מאפיינים נכשלה"
+
+#: src/components/Properties/PropertiesPanel.tsx:157
+#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/Dialogs/CreateDialog.tsx:100
+msgid "Name"
+msgstr "שם"
+
+#: src/components/Properties/PropertiesPanel.tsx:162
+msgid "Full Path"
+msgstr "נתיב מלא"
+
+#: src/components/Properties/PropertiesPanel.tsx:169
+msgid "Type"
+msgstr "סוג"
+
+#: src/components/Properties/PropertiesPanel.tsx:174
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Size"
+msgstr "גודל"
+
+#: src/components/Properties/PropertiesPanel.tsx:176
+msgid "bytes"
+msgstr "בתים"
+
+#: src/components/Properties/PropertiesPanel.tsx:181
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Modified"
+msgstr "שונה"
+
+#: src/components/Properties/PropertiesPanel.tsx:186
+msgid "Accessed"
+msgstr "גישה אחרונה"
+
+#: src/components/Properties/PropertiesPanel.tsx:191
+msgid "Created"
+msgstr "נוצר"
+
+#: src/components/Properties/PropertiesPanel.tsx:197
+#: src/components/Properties/PropertiesPanel.tsx:207
+#: src/components/Properties/PermissionEditor.tsx:49
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Owner"
+msgstr "בעלים"
+
+#: src/components/Properties/PropertiesPanel.tsx:216
+#: src/components/Properties/PropertiesPanel.tsx:226
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Group"
+msgstr "קבוצה"
+
+#: src/components/Properties/PropertiesPanel.tsx:242
+msgid "Apply Ownership"
+msgstr "החל בעלות"
+
+#: src/components/Properties/PropertiesPanel.tsx:245
+msgid "Ownership updated"
+msgstr "הבעלות עודכנה"
+
+#: src/components/Properties/PropertiesPanel.tsx:248
+msgid "Failed to update ownership"
+msgstr "עדכון הבעלות נכשל"
+
+#: src/components/Properties/PropertiesPanel.tsx:259
+msgid "Link Target"
+msgstr "יעד הקישור"
+
+#: src/components/Properties/PropertiesPanel.tsx:268
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Permissions"
+msgstr "הרשאות"
+
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Other"
+msgstr "אחר"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Read"
+msgstr "קריאה"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Write"
+msgstr "כתיבה"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Execute"
+msgstr "הרצה"
+
+#: src/components/Properties/PermissionEditor.tsx:141
+msgid "Octal permissions"
+msgstr "הרשאות אוקטליות"
+
+#: src/components/Properties/PermissionEditor.tsx:152
+msgid "Apply"
+msgstr "החל"
+
+#: src/components/Properties/PermissionEditor.tsx:157
+msgid "Permissions updated"
+msgstr "ההרשאות עודכנו"
+
+#: src/components/Properties/PermissionEditor.tsx:160
+msgid "Failed to update permissions"
+msgstr "עדכון ההרשאות נכשל"
+
+#: src/components/FileBrowser/FileTable.tsx:196
+#: src/components/FileBrowser/FileGrid.tsx:124
+msgid "No files"
+msgstr "אין קבצים"
+
+#: src/components/FileBrowser/FileTable.tsx:201
+#: src/components/FileBrowser/FileGrid.tsx:129
+msgid "This directory is empty."
+msgstr "תיקייה זו ריקה."
+
+#: src/components/FileBrowser/FileTable.tsx:234
+msgid "File listing"
+msgstr "רשימת קבצים"
+
+#: src/components/FileBrowser/FileTable.tsx:242
+msgid "Select all"
+msgstr "בחר הכל"
+
+#: src/components/FileBrowser/FileBrowser.tsx:19
+msgid "Loading"
+msgstr "טוען"
+
+#: src/components/FileBrowser/FileBrowser.tsx:27
+msgid "Error loading directory"
+msgstr "שגיאה בטעינת תיקייה"
+
+#: src/components/Dialogs/DeleteDialog.tsx:59
+msgid "Are you sure you want to delete"
+msgstr "האם אתה בטוח שברצונך למחוק"
+
+#: src/components/Dialogs/DeleteDialog.tsx:63
+msgid "This will permanently delete the directory and all its contents."
+msgstr "פעולה זו תמחק לצמיתות את התיקייה ואת כל תוכנה."
+
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/components/Dialogs/CreateDialog.tsx:29
+msgid "New Symbolic Link"
+msgstr "קישור סמלי חדש"
+
+#: src/components/Dialogs/CreateDialog.tsx:34
+#: src/components/Dialogs/RenameDialog.tsx:34
+msgid "Name cannot be empty"
+msgstr "השם לא יכול להיות ריק"
+
+#: src/components/Dialogs/CreateDialog.tsx:37
+#: src/components/Dialogs/RenameDialog.tsx:37
+msgid "Name cannot contain '/'"
+msgstr "השם לא יכול להכיל '/'"
+
+#: src/components/Dialogs/CreateDialog.tsx:40
+msgid "Target path cannot be empty"
+msgstr "נתיב היעד לא יכול להיות ריק"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "filename.txt"
+msgstr "שם-קובץ.txt"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "new-folder"
+msgstr "תיקייה-חדשה"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "link-name"
+msgstr "שם-קישור"
+
+#: src/components/Dialogs/CreateDialog.tsx:112
+msgid "Target path"
+msgstr "נתיב יעד"
+
+#: src/components/Dialogs/CreateDialog.tsx:119
+msgid "/path/to/target"
+msgstr "/נתיב/אל/יעד"
+
+#: src/components/Dialogs/CreateDialog.tsx:137
+#: src/components/Dialogs/RenameDialog.tsx:112
+msgid "OK"
+msgstr "אישור"
+
+#: src/components/Dialogs/RenameDialog.tsx:89
+msgid "New name"
+msgstr "שם חדש"
+
+#: src/components/Upload/UploadZone.tsx:134
+msgid "Drop files here to upload"
+msgstr "גרור קבצים לכאן להעלאה"
+
+#: src/components/Upload/UploadZone.tsx:144
+msgid "Uploading $0 of $1 files..."
+msgstr "מעלה $0 מתוך $1 קבצים..."
+
+#: src/components/Upload/UploadZone.tsx:145
+msgid "$0 of $1"
+msgstr "$0 מתוך $1"
+
+#: src/components/Upload/UploadZone.tsx:154
+msgid "Upload failed"
+msgstr "ההעלאה נכשלה"
+
+#: src/components/Upload/UploadZone.tsx:160
+msgid "Close"
+msgstr "סגור"

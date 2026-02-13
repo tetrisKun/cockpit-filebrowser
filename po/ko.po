@@ -1,0 +1,492 @@
+# Korean translation for cockpit-filebrowser
+# Copyright (C) 2026 cockpit-filebrowser developers
+# This file is distributed under the same license as the cockpit-filebrowser package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cockpit-filebrowser 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"PO-Revision-Date: 2026-02-14 00:00+0900\n"
+"Last-Translator: \n"
+"Language-Team: Korean\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "파일 브라우저"
+
+#: src/components/Sidebar/Sidebar.tsx:33
+msgid "Home"
+msgstr "홈"
+
+#: src/components/Sidebar/Sidebar.tsx:34
+msgid "Root"
+msgstr "루트"
+
+#: src/components/Sidebar/Sidebar.tsx:68
+msgid "Sidebar navigation"
+msgstr "사이드바 탐색"
+
+#: src/components/Sidebar/Sidebar.tsx:69
+msgid "Quick Access"
+msgstr "빠른 접근"
+
+#: src/components/Sidebar/Sidebar.tsx:85
+msgid "Bookmarks"
+msgstr "북마크"
+
+#: src/components/Sidebar/Sidebar.tsx:89
+msgid "No bookmarks yet"
+msgstr "북마크가 없습니다"
+
+#: src/components/Sidebar/Sidebar.tsx:112
+msgid "Remove bookmark"
+msgstr "북마크 제거"
+
+#: src/components/Sidebar/Sidebar.tsx:131
+msgid "Bookmark current"
+msgstr "현재 디렉터리 북마크"
+
+#: src/components/FileEditor/FileEditor.tsx:140
+msgid "Error loading file"
+msgstr "파일 로드 오류"
+
+#: src/components/FileEditor/FileEditor.tsx:213
+msgid "modified"
+msgstr "수정됨"
+
+#: src/components/FileEditor/FileEditor.tsx:218
+msgid "Markdown view mode"
+msgstr "Markdown 보기 모드"
+
+#: src/components/FileEditor/FileEditor.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:180
+msgid "Edit"
+msgstr "편집"
+
+#: src/components/FileEditor/FileEditor.tsx:222
+msgid "Edit only"
+msgstr "편집만"
+
+#: src/components/FileEditor/FileEditor.tsx:228
+msgid "Split"
+msgstr "분할"
+
+#: src/components/FileEditor/FileEditor.tsx:229
+msgid "Split view"
+msgstr "분할 보기"
+
+#: src/components/FileEditor/FileEditor.tsx:235
+msgid "Preview"
+msgstr "미리보기"
+
+#: src/components/FileEditor/FileEditor.tsx:236
+msgid "Preview only"
+msgstr "미리보기만"
+
+#: src/components/FileEditor/FileEditor.tsx:251
+msgid "Save"
+msgstr "저장"
+
+#: src/components/FileEditor/FileEditor.tsx:256
+msgid "Close editor"
+msgstr "편집기 닫기"
+
+#: src/components/Toolbar/Toolbar.tsx:171
+msgid "Go back"
+msgstr "뒤로"
+
+#: src/components/Toolbar/Toolbar.tsx:182
+msgid "Go forward"
+msgstr "앞으로"
+
+#: src/components/Toolbar/Toolbar.tsx:193
+msgid "Go up"
+msgstr "상위 디렉터리"
+
+#: src/components/Toolbar/Toolbar.tsx:203
+msgid "Refresh"
+msgstr "새로고침"
+
+#: src/components/Toolbar/Toolbar.tsx:219
+msgid "View mode"
+msgstr "보기 모드"
+
+#: src/components/Toolbar/Toolbar.tsx:222
+msgid "Table view"
+msgstr "테이블 보기"
+
+#: src/components/Toolbar/Toolbar.tsx:228
+msgid "Grid view"
+msgstr "그리드 보기"
+
+#: src/components/Toolbar/Toolbar.tsx:240
+msgid "Show hidden files"
+msgstr "숨김 파일 표시"
+
+#: src/components/Toolbar/Toolbar.tsx:257
+#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Dialogs/CreateDialog.tsx:27
+msgid "New File"
+msgstr "새 파일"
+
+#: src/components/Toolbar/Toolbar.tsx:267
+msgid "New Folder"
+msgstr "새 폴더"
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Uploading..."
+msgstr "업로드 중..."
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Upload"
+msgstr "업로드"
+
+#: src/components/Toolbar/Toolbar.tsx:291
+msgid "Downloading..."
+msgstr "다운로드 중..."
+
+#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/ContextMenu/ContextMenu.tsx:215
+msgid "Download"
+msgstr "다운로드"
+
+#: src/components/Toolbar/Toolbar.tsx:300
+msgid "Search files..."
+msgstr "파일 검색..."
+
+#: src/components/Toolbar/Toolbar.tsx:306
+msgid "Search files"
+msgstr "파일 검색"
+
+#: src/components/Toolbar/PathBar.tsx:72
+msgid "Path input"
+msgstr "경로 입력"
+
+#: src/components/Toolbar/PathBar.tsx:78
+msgid "Cancel editing"
+msgstr "편집 취소"
+
+#: src/components/Toolbar/PathBar.tsx:111
+msgid "Edit path"
+msgstr "경로 편집"
+
+#: src/components/ContextMenu/ContextMenu.tsx:179
+msgid "Open"
+msgstr "열기"
+
+#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/Dialogs/CreateDialog.tsx:28
+msgid "New Directory"
+msgstr "새 디렉터리"
+
+#: src/components/ContextMenu/ContextMenu.tsx:188
+msgid "New Symlink"
+msgstr "새 심볼릭 링크"
+
+#: src/components/ContextMenu/ContextMenu.tsx:194
+msgid "Cut"
+msgstr "잘라내기"
+
+#: src/components/ContextMenu/ContextMenu.tsx:195
+msgid "Copy"
+msgstr "복사"
+
+#: src/components/ContextMenu/ContextMenu.tsx:199
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/Dialogs/RenameDialog.tsx:87
+msgid "Rename"
+msgstr "이름 변경"
+
+#: src/components/ContextMenu/ContextMenu.tsx:207
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "삭제"
+
+#: src/components/ContextMenu/ContextMenu.tsx:221
+msgid "Download as Archive"
+msgstr "아카이브로 다운로드"
+
+#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/Properties/PropertiesPanel.tsx:111
+#: src/components/Properties/PropertiesPanel.tsx:129
+msgid "Properties"
+msgstr "속성"
+
+#: src/components/ContextMenu/ContextMenu.tsx:231
+msgid "Bookmark This Folder"
+msgstr "이 폴더 북마크"
+
+#: src/components/Search/SearchPanel.tsx:113
+msgid "Search mode"
+msgstr "검색 모드"
+
+#: src/components/Search/SearchPanel.tsx:115
+msgid "Filename"
+msgstr "파일명"
+
+#: src/components/Search/SearchPanel.tsx:120
+msgid "Content"
+msgstr "내용"
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search by filename..."
+msgstr "파일명으로 검색..."
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search file contents..."
+msgstr "파일 내용 검색..."
+
+#: src/components/Search/SearchPanel.tsx:134
+msgid "Search"
+msgstr "검색"
+
+#: src/components/Search/SearchPanel.tsx:142
+msgid "Close search"
+msgstr "검색 닫기"
+
+#: src/components/Search/SearchPanel.tsx:152
+msgid "Searching"
+msgstr "검색 중"
+
+#: src/components/Search/SearchPanel.tsx:153
+msgid "Searching..."
+msgstr "검색 중..."
+
+#: src/components/Search/SearchPanel.tsx:159
+msgid "No results found"
+msgstr "결과를 찾을 수 없습니다"
+
+#: src/components/Search/SearchPanel.tsx:165
+msgid "No files matched your search query."
+msgstr "검색어와 일치하는 파일이 없습니다."
+
+#: src/components/Search/SearchPanel.tsx:174
+msgid "Showing first 200 results"
+msgstr "처음 200개 결과 표시"
+
+#: src/components/Search/SearchPanel.tsx:175
+msgid "$0 results"
+msgstr "$0개 결과"
+
+#: src/components/Properties/PropertiesPanel.tsx:135
+msgid "Failed to load properties"
+msgstr "속성 로드 실패"
+
+#: src/components/Properties/PropertiesPanel.tsx:157
+#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/Dialogs/CreateDialog.tsx:100
+msgid "Name"
+msgstr "이름"
+
+#: src/components/Properties/PropertiesPanel.tsx:162
+msgid "Full Path"
+msgstr "전체 경로"
+
+#: src/components/Properties/PropertiesPanel.tsx:169
+msgid "Type"
+msgstr "유형"
+
+#: src/components/Properties/PropertiesPanel.tsx:174
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Size"
+msgstr "크기"
+
+#: src/components/Properties/PropertiesPanel.tsx:176
+msgid "bytes"
+msgstr "바이트"
+
+#: src/components/Properties/PropertiesPanel.tsx:181
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Modified"
+msgstr "수정일"
+
+#: src/components/Properties/PropertiesPanel.tsx:186
+msgid "Accessed"
+msgstr "접근일"
+
+#: src/components/Properties/PropertiesPanel.tsx:191
+msgid "Created"
+msgstr "생성일"
+
+#: src/components/Properties/PropertiesPanel.tsx:197
+#: src/components/Properties/PropertiesPanel.tsx:207
+#: src/components/Properties/PermissionEditor.tsx:49
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Owner"
+msgstr "소유자"
+
+#: src/components/Properties/PropertiesPanel.tsx:216
+#: src/components/Properties/PropertiesPanel.tsx:226
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Group"
+msgstr "그룹"
+
+#: src/components/Properties/PropertiesPanel.tsx:242
+msgid "Apply Ownership"
+msgstr "소유권 적용"
+
+#: src/components/Properties/PropertiesPanel.tsx:245
+msgid "Ownership updated"
+msgstr "소유권이 업데이트되었습니다"
+
+#: src/components/Properties/PropertiesPanel.tsx:248
+msgid "Failed to update ownership"
+msgstr "소유권 업데이트 실패"
+
+#: src/components/Properties/PropertiesPanel.tsx:259
+msgid "Link Target"
+msgstr "링크 대상"
+
+#: src/components/Properties/PropertiesPanel.tsx:268
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Permissions"
+msgstr "권한"
+
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Other"
+msgstr "기타"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Read"
+msgstr "읽기"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Write"
+msgstr "쓰기"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Execute"
+msgstr "실행"
+
+#: src/components/Properties/PermissionEditor.tsx:141
+msgid "Octal permissions"
+msgstr "8진수 권한"
+
+#: src/components/Properties/PermissionEditor.tsx:152
+msgid "Apply"
+msgstr "적용"
+
+#: src/components/Properties/PermissionEditor.tsx:157
+msgid "Permissions updated"
+msgstr "권한이 업데이트되었습니다"
+
+#: src/components/Properties/PermissionEditor.tsx:160
+msgid "Failed to update permissions"
+msgstr "권한 업데이트 실패"
+
+#: src/components/FileBrowser/FileTable.tsx:196
+#: src/components/FileBrowser/FileGrid.tsx:124
+msgid "No files"
+msgstr "파일 없음"
+
+#: src/components/FileBrowser/FileTable.tsx:201
+#: src/components/FileBrowser/FileGrid.tsx:129
+msgid "This directory is empty."
+msgstr "이 디렉터리는 비어 있습니다."
+
+#: src/components/FileBrowser/FileTable.tsx:234
+msgid "File listing"
+msgstr "파일 목록"
+
+#: src/components/FileBrowser/FileTable.tsx:242
+msgid "Select all"
+msgstr "모두 선택"
+
+#: src/components/FileBrowser/FileBrowser.tsx:19
+msgid "Loading"
+msgstr "로딩 중"
+
+#: src/components/FileBrowser/FileBrowser.tsx:27
+msgid "Error loading directory"
+msgstr "디렉터리 로드 오류"
+
+#: src/components/Dialogs/DeleteDialog.tsx:59
+msgid "Are you sure you want to delete"
+msgstr "정말 삭제하시겠습니까"
+
+#: src/components/Dialogs/DeleteDialog.tsx:63
+msgid "This will permanently delete the directory and all its contents."
+msgstr "이 디렉터리와 모든 내용이 영구적으로 삭제됩니다."
+
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/Dialogs/CreateDialog.tsx:29
+msgid "New Symbolic Link"
+msgstr "새 심볼릭 링크"
+
+#: src/components/Dialogs/CreateDialog.tsx:34
+#: src/components/Dialogs/RenameDialog.tsx:34
+msgid "Name cannot be empty"
+msgstr "이름은 비워둘 수 없습니다"
+
+#: src/components/Dialogs/CreateDialog.tsx:37
+#: src/components/Dialogs/RenameDialog.tsx:37
+msgid "Name cannot contain '/'"
+msgstr "이름에 '/'를 포함할 수 없습니다"
+
+#: src/components/Dialogs/CreateDialog.tsx:40
+msgid "Target path cannot be empty"
+msgstr "대상 경로는 비워둘 수 없습니다"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "filename.txt"
+msgstr "파일이름.txt"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "new-folder"
+msgstr "새-폴더"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "link-name"
+msgstr "링크-이름"
+
+#: src/components/Dialogs/CreateDialog.tsx:112
+msgid "Target path"
+msgstr "대상 경로"
+
+#: src/components/Dialogs/CreateDialog.tsx:119
+msgid "/path/to/target"
+msgstr "/대상/경로"
+
+#: src/components/Dialogs/CreateDialog.tsx:137
+#: src/components/Dialogs/RenameDialog.tsx:112
+msgid "OK"
+msgstr "확인"
+
+#: src/components/Dialogs/RenameDialog.tsx:89
+msgid "New name"
+msgstr "새 이름"
+
+#: src/components/Upload/UploadZone.tsx:134
+msgid "Drop files here to upload"
+msgstr "여기에 파일을 끌어다 놓아 업로드"
+
+#: src/components/Upload/UploadZone.tsx:144
+msgid "Uploading $0 of $1 files..."
+msgstr "$1개 중 $0번째 파일 업로드 중..."
+
+#: src/components/Upload/UploadZone.tsx:145
+msgid "$0 of $1"
+msgstr "$0 / $1"
+
+#: src/components/Upload/UploadZone.tsx:154
+msgid "Upload failed"
+msgstr "업로드 실패"
+
+#: src/components/Upload/UploadZone.tsx:160
+msgid "Close"
+msgstr "닫기"

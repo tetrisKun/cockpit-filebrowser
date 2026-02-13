@@ -1,0 +1,492 @@
+# Dutch translation for cockpit-filebrowser
+# Copyright (C) 2026 cockpit-filebrowser developers
+# This file is distributed under the same license as the cockpit-filebrowser package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cockpit-filebrowser 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"PO-Revision-Date: 2026-02-14 00:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "Bestandsbeheer"
+
+#: src/components/Sidebar/Sidebar.tsx:33
+msgid "Home"
+msgstr "Thuismap"
+
+#: src/components/Sidebar/Sidebar.tsx:34
+msgid "Root"
+msgstr "Hoofdmap"
+
+#: src/components/Sidebar/Sidebar.tsx:68
+msgid "Sidebar navigation"
+msgstr "Zijbalknavigatie"
+
+#: src/components/Sidebar/Sidebar.tsx:69
+msgid "Quick Access"
+msgstr "Snelle toegang"
+
+#: src/components/Sidebar/Sidebar.tsx:85
+msgid "Bookmarks"
+msgstr "Bladwijzers"
+
+#: src/components/Sidebar/Sidebar.tsx:89
+msgid "No bookmarks yet"
+msgstr "Nog geen bladwijzers"
+
+#: src/components/Sidebar/Sidebar.tsx:112
+msgid "Remove bookmark"
+msgstr "Bladwijzer verwijderen"
+
+#: src/components/Sidebar/Sidebar.tsx:131
+msgid "Bookmark current"
+msgstr "Huidige map toevoegen aan bladwijzers"
+
+#: src/components/FileEditor/FileEditor.tsx:140
+msgid "Error loading file"
+msgstr "Fout bij het laden van bestand"
+
+#: src/components/FileEditor/FileEditor.tsx:213
+msgid "modified"
+msgstr "gewijzigd"
+
+#: src/components/FileEditor/FileEditor.tsx:218
+msgid "Markdown view mode"
+msgstr "Markdown-weergavemodus"
+
+#: src/components/FileEditor/FileEditor.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:180
+msgid "Edit"
+msgstr "Bewerken"
+
+#: src/components/FileEditor/FileEditor.tsx:222
+msgid "Edit only"
+msgstr "Alleen bewerken"
+
+#: src/components/FileEditor/FileEditor.tsx:228
+msgid "Split"
+msgstr "Splitsen"
+
+#: src/components/FileEditor/FileEditor.tsx:229
+msgid "Split view"
+msgstr "Gesplitste weergave"
+
+#: src/components/FileEditor/FileEditor.tsx:235
+msgid "Preview"
+msgstr "Voorbeeld"
+
+#: src/components/FileEditor/FileEditor.tsx:236
+msgid "Preview only"
+msgstr "Alleen voorbeeld"
+
+#: src/components/FileEditor/FileEditor.tsx:251
+msgid "Save"
+msgstr "Opslaan"
+
+#: src/components/FileEditor/FileEditor.tsx:256
+msgid "Close editor"
+msgstr "Editor sluiten"
+
+#: src/components/Toolbar/Toolbar.tsx:171
+msgid "Go back"
+msgstr "Terug"
+
+#: src/components/Toolbar/Toolbar.tsx:182
+msgid "Go forward"
+msgstr "Vooruit"
+
+#: src/components/Toolbar/Toolbar.tsx:193
+msgid "Go up"
+msgstr "Bovenliggende map"
+
+#: src/components/Toolbar/Toolbar.tsx:203
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+#: src/components/Toolbar/Toolbar.tsx:219
+msgid "View mode"
+msgstr "Weergavemodus"
+
+#: src/components/Toolbar/Toolbar.tsx:222
+msgid "Table view"
+msgstr "Tabelweergave"
+
+#: src/components/Toolbar/Toolbar.tsx:228
+msgid "Grid view"
+msgstr "Rasterweergave"
+
+#: src/components/Toolbar/Toolbar.tsx:240
+msgid "Show hidden files"
+msgstr "Verborgen bestanden tonen"
+
+#: src/components/Toolbar/Toolbar.tsx:257
+#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Dialogs/CreateDialog.tsx:27
+msgid "New File"
+msgstr "Nieuw bestand"
+
+#: src/components/Toolbar/Toolbar.tsx:267
+msgid "New Folder"
+msgstr "Nieuwe map"
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Uploading..."
+msgstr "Uploaden..."
+
+#: src/components/Toolbar/Toolbar.tsx:279
+msgid "Upload"
+msgstr "Uploaden"
+
+#: src/components/Toolbar/Toolbar.tsx:291
+msgid "Downloading..."
+msgstr "Downloaden..."
+
+#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/ContextMenu/ContextMenu.tsx:215
+msgid "Download"
+msgstr "Downloaden"
+
+#: src/components/Toolbar/Toolbar.tsx:300
+msgid "Search files..."
+msgstr "Bestanden zoeken..."
+
+#: src/components/Toolbar/Toolbar.tsx:306
+msgid "Search files"
+msgstr "Bestanden zoeken"
+
+#: src/components/Toolbar/PathBar.tsx:72
+msgid "Path input"
+msgstr "Padinvoer"
+
+#: src/components/Toolbar/PathBar.tsx:78
+msgid "Cancel editing"
+msgstr "Bewerken annuleren"
+
+#: src/components/Toolbar/PathBar.tsx:111
+msgid "Edit path"
+msgstr "Pad bewerken"
+
+#: src/components/ContextMenu/ContextMenu.tsx:179
+msgid "Open"
+msgstr "Openen"
+
+#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/Dialogs/CreateDialog.tsx:28
+msgid "New Directory"
+msgstr "Nieuwe map"
+
+#: src/components/ContextMenu/ContextMenu.tsx:188
+msgid "New Symlink"
+msgstr "Nieuwe symbolische koppeling"
+
+#: src/components/ContextMenu/ContextMenu.tsx:194
+msgid "Cut"
+msgstr "Knippen"
+
+#: src/components/ContextMenu/ContextMenu.tsx:195
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: src/components/ContextMenu/ContextMenu.tsx:199
+msgid "Paste"
+msgstr "Plakken"
+
+#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/Dialogs/RenameDialog.tsx:87
+msgid "Rename"
+msgstr "Hernoemen"
+
+#: src/components/ContextMenu/ContextMenu.tsx:207
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: src/components/ContextMenu/ContextMenu.tsx:221
+msgid "Download as Archive"
+msgstr "Downloaden als archief"
+
+#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/Properties/PropertiesPanel.tsx:111
+#: src/components/Properties/PropertiesPanel.tsx:129
+msgid "Properties"
+msgstr "Eigenschappen"
+
+#: src/components/ContextMenu/ContextMenu.tsx:231
+msgid "Bookmark This Folder"
+msgstr "Deze map toevoegen aan bladwijzers"
+
+#: src/components/Search/SearchPanel.tsx:113
+msgid "Search mode"
+msgstr "Zoekmodus"
+
+#: src/components/Search/SearchPanel.tsx:115
+msgid "Filename"
+msgstr "Bestandsnaam"
+
+#: src/components/Search/SearchPanel.tsx:120
+msgid "Content"
+msgstr "Inhoud"
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search by filename..."
+msgstr "Zoeken op bestandsnaam..."
+
+#: src/components/Search/SearchPanel.tsx:128
+msgid "Search file contents..."
+msgstr "Bestandsinhoud doorzoeken..."
+
+#: src/components/Search/SearchPanel.tsx:134
+msgid "Search"
+msgstr "Zoeken"
+
+#: src/components/Search/SearchPanel.tsx:142
+msgid "Close search"
+msgstr "Zoekvenster sluiten"
+
+#: src/components/Search/SearchPanel.tsx:152
+msgid "Searching"
+msgstr "Zoeken"
+
+#: src/components/Search/SearchPanel.tsx:153
+msgid "Searching..."
+msgstr "Zoeken..."
+
+#: src/components/Search/SearchPanel.tsx:159
+msgid "No results found"
+msgstr "Geen resultaten gevonden"
+
+#: src/components/Search/SearchPanel.tsx:165
+msgid "No files matched your search query."
+msgstr "Geen bestanden gevonden die overeenkomen met uw zoekopdracht."
+
+#: src/components/Search/SearchPanel.tsx:174
+msgid "Showing first 200 results"
+msgstr "Eerste 200 resultaten weergegeven"
+
+#: src/components/Search/SearchPanel.tsx:175
+msgid "$0 results"
+msgstr "$0 resultaten"
+
+#: src/components/Properties/PropertiesPanel.tsx:135
+msgid "Failed to load properties"
+msgstr "Kan eigenschappen niet laden"
+
+#: src/components/Properties/PropertiesPanel.tsx:157
+#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/Dialogs/CreateDialog.tsx:100
+msgid "Name"
+msgstr "Naam"
+
+#: src/components/Properties/PropertiesPanel.tsx:162
+msgid "Full Path"
+msgstr "Volledig pad"
+
+#: src/components/Properties/PropertiesPanel.tsx:169
+msgid "Type"
+msgstr "Type"
+
+#: src/components/Properties/PropertiesPanel.tsx:174
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Size"
+msgstr "Grootte"
+
+#: src/components/Properties/PropertiesPanel.tsx:176
+msgid "bytes"
+msgstr "bytes"
+
+#: src/components/Properties/PropertiesPanel.tsx:181
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Modified"
+msgstr "Gewijzigd"
+
+#: src/components/Properties/PropertiesPanel.tsx:186
+msgid "Accessed"
+msgstr "Geopend"
+
+#: src/components/Properties/PropertiesPanel.tsx:191
+msgid "Created"
+msgstr "Aangemaakt"
+
+#: src/components/Properties/PropertiesPanel.tsx:197
+#: src/components/Properties/PropertiesPanel.tsx:207
+#: src/components/Properties/PermissionEditor.tsx:49
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Owner"
+msgstr "Eigenaar"
+
+#: src/components/Properties/PropertiesPanel.tsx:216
+#: src/components/Properties/PropertiesPanel.tsx:226
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Group"
+msgstr "Groep"
+
+#: src/components/Properties/PropertiesPanel.tsx:242
+msgid "Apply Ownership"
+msgstr "Eigenaarschap toepassen"
+
+#: src/components/Properties/PropertiesPanel.tsx:245
+msgid "Ownership updated"
+msgstr "Eigenaarschap bijgewerkt"
+
+#: src/components/Properties/PropertiesPanel.tsx:248
+msgid "Failed to update ownership"
+msgstr "Kan eigenaarschap niet bijwerken"
+
+#: src/components/Properties/PropertiesPanel.tsx:259
+msgid "Link Target"
+msgstr "Koppelingsdoel"
+
+#: src/components/Properties/PropertiesPanel.tsx:268
+#: src/components/FileBrowser/FileTable.tsx:59
+msgid "Permissions"
+msgstr "Machtigingen"
+
+#: src/components/Properties/PermissionEditor.tsx:49
+msgid "Other"
+msgstr "Overige"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Read"
+msgstr "Lezen"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Write"
+msgstr "Schrijven"
+
+#: src/components/Properties/PermissionEditor.tsx:50
+msgid "Execute"
+msgstr "Uitvoeren"
+
+#: src/components/Properties/PermissionEditor.tsx:141
+msgid "Octal permissions"
+msgstr "Octale machtigingen"
+
+#: src/components/Properties/PermissionEditor.tsx:152
+msgid "Apply"
+msgstr "Toepassen"
+
+#: src/components/Properties/PermissionEditor.tsx:157
+msgid "Permissions updated"
+msgstr "Machtigingen bijgewerkt"
+
+#: src/components/Properties/PermissionEditor.tsx:160
+msgid "Failed to update permissions"
+msgstr "Kan machtigingen niet bijwerken"
+
+#: src/components/FileBrowser/FileTable.tsx:196
+#: src/components/FileBrowser/FileGrid.tsx:124
+msgid "No files"
+msgstr "Geen bestanden"
+
+#: src/components/FileBrowser/FileTable.tsx:201
+#: src/components/FileBrowser/FileGrid.tsx:129
+msgid "This directory is empty."
+msgstr "Deze map is leeg."
+
+#: src/components/FileBrowser/FileTable.tsx:234
+msgid "File listing"
+msgstr "Bestandslijst"
+
+#: src/components/FileBrowser/FileTable.tsx:242
+msgid "Select all"
+msgstr "Alles selecteren"
+
+#: src/components/FileBrowser/FileBrowser.tsx:19
+msgid "Loading"
+msgstr "Laden"
+
+#: src/components/FileBrowser/FileBrowser.tsx:27
+msgid "Error loading directory"
+msgstr "Fout bij het laden van map"
+
+#: src/components/Dialogs/DeleteDialog.tsx:59
+msgid "Are you sure you want to delete"
+msgstr "Weet u zeker dat u wilt verwijderen"
+
+#: src/components/Dialogs/DeleteDialog.tsx:63
+msgid "This will permanently delete the directory and all its contents."
+msgstr "Hiermee wordt de map en alle inhoud permanent verwijderd."
+
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: src/components/Dialogs/CreateDialog.tsx:29
+msgid "New Symbolic Link"
+msgstr "Nieuwe symbolische koppeling"
+
+#: src/components/Dialogs/CreateDialog.tsx:34
+#: src/components/Dialogs/RenameDialog.tsx:34
+msgid "Name cannot be empty"
+msgstr "Naam mag niet leeg zijn"
+
+#: src/components/Dialogs/CreateDialog.tsx:37
+#: src/components/Dialogs/RenameDialog.tsx:37
+msgid "Name cannot contain '/'"
+msgstr "Naam mag geen '/' bevatten"
+
+#: src/components/Dialogs/CreateDialog.tsx:40
+msgid "Target path cannot be empty"
+msgstr "Doelpad mag niet leeg zijn"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "filename.txt"
+msgstr "bestandsnaam.txt"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "new-folder"
+msgstr "nieuwe-map"
+
+#: src/components/Dialogs/CreateDialog.tsx:107
+msgid "link-name"
+msgstr "koppelingsnaam"
+
+#: src/components/Dialogs/CreateDialog.tsx:112
+msgid "Target path"
+msgstr "Doelpad"
+
+#: src/components/Dialogs/CreateDialog.tsx:119
+msgid "/path/to/target"
+msgstr "/pad/naar/doel"
+
+#: src/components/Dialogs/CreateDialog.tsx:137
+#: src/components/Dialogs/RenameDialog.tsx:112
+msgid "OK"
+msgstr "OK"
+
+#: src/components/Dialogs/RenameDialog.tsx:89
+msgid "New name"
+msgstr "Nieuwe naam"
+
+#: src/components/Upload/UploadZone.tsx:134
+msgid "Drop files here to upload"
+msgstr "Sleep bestanden hierheen om te uploaden"
+
+#: src/components/Upload/UploadZone.tsx:144
+msgid "Uploading $0 of $1 files..."
+msgstr "Bestand $0 van $1 uploaden..."
+
+#: src/components/Upload/UploadZone.tsx:145
+msgid "$0 of $1"
+msgstr "$0 van $1"
+
+#: src/components/Upload/UploadZone.tsx:154
+msgid "Upload failed"
+msgstr "Uploaden mislukt"
+
+#: src/components/Upload/UploadZone.tsx:160
+msgid "Close"
+msgstr "Sluiten"
