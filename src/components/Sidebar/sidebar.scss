@@ -1,0 +1,64 @@
+/* Sidebar navigation styles */
+
+.sidebar-nav-item {
+    cursor: pointer;
+
+    &__icon {
+        margin-right: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        color: var(--pf-t--global--icon--color--regular, #151515);
+    }
+
+    &__label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__content {
+        display: inline-flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* Bookmark item with remove button */
+.sidebar-bookmark-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .sidebar-bookmark-remove {
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        padding: 0.125rem;
+        margin-left: 0.25rem;
+        flex-shrink: 0;
+
+        svg {
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+    }
+
+    &:hover .sidebar-bookmark-remove {
+        opacity: 1;
+    }
+}
+
+/* Empty bookmarks hint */
+.sidebar-bookmarks-empty {
+    padding: var(--pf-t--global--spacer--sm, 0.5rem) var(--pf-t--global--spacer--md, 1rem);
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    font-style: italic;
+    font-size: 0.875rem;
+    list-style: none;
+}
+
+/* Bookmark current button at bottom */
+.sidebar-bookmark-current {
+    padding: var(--pf-t--global--spacer--md, 1rem);
+    border-top: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+}

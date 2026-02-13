@@ -103,6 +103,32 @@ export const FileBrowserProvider: React.FC<{ children: React.ReactNode }> = ({ c
             });
     }, []);
 
+    // Save bookmarks to disk whenever they change
+    const bookmarksInitializedRef = useRef(false);
+    useEffect(() => {
+        // Skip saving on initial mount (before bookmarks are loaded from disk)
+        if (!bookmarksInitializedRef.current) {
+            bookmarksInitializedRef.current = true;
+            return;
+        }
+
+        const saveBookmarks = async () => {
+            try {
+                await cockpit.spawn(
+                    ['mkdir', '-p', '/root/.config/cockpit-filebrowser'],
+                    { superuser: "try" as const, err: "message" as const }
+                );
+                const handle = cockpit.file(BOOKMARKS_PATH, { superuser: "try" as const });
+                await handle.replace(JSON.stringify(state.bookmarks));
+                handle.close();
+            } catch {
+                // Silently fail if we can't save bookmarks
+            }
+        };
+
+        saveBookmarks();
+    }, [state.bookmarks]);
+
     // Cleanup on unmount
     useEffect(() => {
         return () => {
