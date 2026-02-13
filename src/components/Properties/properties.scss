@@ -1,0 +1,71 @@
+/* Properties panel */
+.properties-panel__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pf-t--global--spacer--xl, 2rem);
+}
+
+.properties-panel__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pf-t--global--spacer--md, 1rem);
+}
+
+.properties-panel__path {
+    word-break: break-all;
+    font-family: monospace;
+    font-size: var(--pf-t--global--font--size--sm, 0.875rem);
+}
+
+.properties-panel__editable-field {
+    display: flex;
+    align-items: center;
+    gap: var(--pf-t--global--spacer--sm, 0.5rem);
+}
+
+.properties-panel__ownership-apply {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pf-t--global--spacer--sm, 0.5rem);
+    align-items: flex-start;
+}
+
+/* Permission editor */
+.permission-editor {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pf-t--global--spacer--md, 1rem);
+}
+
+.permission-editor__grid {
+    display: grid;
+    grid-template-columns: auto repeat(3, 1fr);
+    gap: var(--pf-t--global--spacer--xs, 0.25rem) var(--pf-t--global--spacer--sm, 0.5rem);
+    align-items: center;
+}
+
+.permission-editor__grid-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pf-t--global--spacer--xs, 0.25rem);
+}
+
+.permission-editor__grid-header {
+    font-weight: var(--pf-t--global--font--weight--body--bold, 700);
+    font-size: var(--pf-t--global--font--size--sm, 0.875rem);
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+}
+
+.permission-editor__grid-label {
+    justify-content: flex-start;
+    font-weight: var(--pf-t--global--font--weight--body--default, 400);
+    padding-right: var(--pf-t--global--spacer--md, 1rem);
+}
+
+.permission-editor__octal {
+    display: flex;
+    align-items: center;
+    gap: var(--pf-t--global--spacer--sm, 0.5rem);
+}
