@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Page, PageSection, PageSidebar, PageSidebarBody } from "@patternfly/react-core/dist/esm/components/Page/index.js";
 import {
     Drawer,
@@ -12,9 +12,21 @@ import { FileBrowser } from './components/FileBrowser/FileBrowser';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { FileEditor } from './components/FileEditor/FileEditor';
 import { PropertiesPanel } from './components/Properties/PropertiesPanel';
+import { SearchPanel } from './components/Search/SearchPanel';
 
 const AppContent: React.FC = () => {
     const { state } = useFileBrowser();
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = useCallback((query: string) => {
+        setSearchQuery(query);
+        setSearchOpen(true);
+    }, []);
+
+    const handleCloseSearch = useCallback(() => {
+        setSearchOpen(false);
+    }, []);
 
     const isPropertiesOpen = state.propertiesOpen && state.propertiesFile !== null;
 
@@ -38,7 +50,13 @@ const AppContent: React.FC = () => {
                 }
             >
                 <PageSection variant="secondary" padding={{ default: 'noPadding' }}>
-                    <Toolbar />
+                    <Toolbar onSearch={handleSearch} />
+                    {searchOpen && (
+                        <SearchPanel
+                            initialQuery={searchQuery}
+                            onClose={handleCloseSearch}
+                        />
+                    )}
                 </PageSection>
                 <PageSection isFilled>
                     <Drawer isExpanded={isPropertiesOpen} position="end">
