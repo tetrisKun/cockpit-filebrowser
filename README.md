@@ -1,3 +1,5 @@
+[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 # cockpit-filebrowser
 
 A modern file browser plugin for the [Cockpit](https://cockpit-project.org/) web console.
