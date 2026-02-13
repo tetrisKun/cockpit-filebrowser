@@ -1,0 +1,14 @@
+/* Context menu styles */
+
+.context-menu-overlay {
+    position: fixed;
+    z-index: 9999;
+}
+
+.context-menu {
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+    border-radius: var(--pf-t--global--border--radius--small, 3px);
+    background-color: var(--pf-t--global--background--color--primary--default, #fff);
+}

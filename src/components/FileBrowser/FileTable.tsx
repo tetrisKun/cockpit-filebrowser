@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState } from 'react';
 import cockpit from 'cockpit';
 import {
     Table,
@@ -18,6 +18,10 @@ import { useFileBrowser } from '../../store/FileBrowserContext';
 import { FileIcon } from './FileIcon';
 import { FileEntry } from '../../api/types';
 import { SortField, SortDirection } from '../../store/actions';
+import { ContextMenu } from '../ContextMenu/ContextMenu';
+import { CreateDialog } from '../Dialogs/CreateDialog';
+import { DeleteDialog } from '../Dialogs/DeleteDialog';
+import { RenameDialog } from '../Dialogs/RenameDialog';
 
 const _ = cockpit.gettext;
 
@@ -54,8 +58,22 @@ function formatDate(dateStr: string): string {
 // Column names (localized)
 const columnNames = (): string[] => [_("Name"), _("Size"), _("Modified"), _("Permissions"), _("Owner")];
 
+interface ContextMenuState {
+    x: number;
+    y: number;
+    entry: FileEntry | null;
+}
+
 export const FileTable: React.FC = () => {
     const { state, dispatch, navigate } = useFileBrowser();
+
+    // Context menu state
+    const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
+
+    // Dialog states
+    const [createDialogType, setCreateDialogType] = useState<'file' | 'directory' | 'link' | null>(null);
+    const [renameEntry, setRenameEntry] = useState<FileEntry | null>(null);
+    const [deleteEntry, setDeleteEntry] = useState<FileEntry | null>(null);
 
     // Map our sort field to column index
     const sortFieldToIndex = (field: SortField): number => {
@@ -125,9 +143,31 @@ export const FileTable: React.FC = () => {
         }
     }, [navigate, dispatch]);
 
-    const handleContextMenu = useCallback((event: React.MouseEvent) => {
+    const handleRowContextMenu = useCallback((event: React.MouseEvent, entry: FileEntry) => {
         event.preventDefault();
-        // Placeholder for future context menu
+        event.stopPropagation();
+        setContextMenu({ x: event.clientX, y: event.clientY, entry });
+    }, []);
+
+    const handleEmptyContextMenu = useCallback((event: React.MouseEvent) => {
+        event.preventDefault();
+        setContextMenu({ x: event.clientX, y: event.clientY, entry: null });
+    }, []);
+
+    const handleCloseContextMenu = useCallback(() => {
+        setContextMenu(null);
+    }, []);
+
+    const handleCreateDialog = useCallback((type: 'file' | 'directory' | 'link') => {
+        setCreateDialogType(type);
+    }, []);
+
+    const handleRenameDialog = useCallback((entry: FileEntry) => {
+        setRenameEntry(entry);
+    }, []);
+
+    const handleDeleteDialog = useCallback((entry: FileEntry) => {
+        setDeleteEntry(entry);
     }, []);
 
     const isSelected = useCallback((entry: FileEntry): boolean => {
@@ -151,93 +191,155 @@ export const FileTable: React.FC = () => {
 
     if (sortedEntries.length === 0 && !state.loading) {
         return (
-            <EmptyState
-                titleText={_("No files")}
-                headingLevel="h4"
-                icon={FolderOpenIcon}
-            >
-                <EmptyStateBody>
-                    {_("This directory is empty.")}
-                </EmptyStateBody>
-            </EmptyState>
+            <div onContextMenu={handleEmptyContextMenu}>
+                <EmptyState
+                    titleText={_("No files")}
+                    headingLevel="h4"
+                    icon={FolderOpenIcon}
+                >
+                    <EmptyStateBody>
+                        {_("This directory is empty.")}
+                    </EmptyStateBody>
+                </EmptyState>
+
+                {/* Context menu */}
+                {contextMenu && (
+                    <ContextMenu
+                        x={contextMenu.x}
+                        y={contextMenu.y}
+                        entry={contextMenu.entry}
+                        onClose={handleCloseContextMenu}
+                        onCreateDialog={handleCreateDialog}
+                        onRenameDialog={handleRenameDialog}
+                        onDeleteDialog={handleDeleteDialog}
+                    />
+                )}
+
+                {/* Dialogs */}
+                {createDialogType && (
+                    <CreateDialog
+                        type={createDialogType}
+                        isOpen={true}
+                        onClose={() => setCreateDialogType(null)}
+                    />
+                )}
+            </div>
         );
     }
 
     const allSelected = sortedEntries.length > 0 && state.selectedEntries.size === sortedEntries.length;
 
     return (
-        <Table aria-label={_("File listing")} variant="compact">
-            <Thead>
-                <Tr>
-                    <Th
-                        select={{
-                            onSelect: handleSelectAll,
-                            isSelected: allSelected,
-                        }}
-                        aria-label={_("Select all")}
-                    />
-                    {names.map((name, index) => (
+        <div onContextMenu={handleEmptyContextMenu}>
+            <Table aria-label={_("File listing")} variant="compact">
+                <Thead>
+                    <Tr>
                         <Th
-                            key={index}
-                            sort={{
-                                sortBy: {
-                                    index: activeSortIndex,
-                                    direction: activeSortDirection,
-                                },
-                                onSort: handleSort,
-                                columnIndex: index,
+                            select={{
+                                onSelect: handleSelectAll,
+                                isSelected: allSelected,
                             }}
-                        >
-                            {name}
-                        </Th>
-                    ))}
-                </Tr>
-            </Thead>
-            <Tbody>
-                {sortedEntries.map((entry) => {
-                    const selected = isSelected(entry);
-                    return (
-                        <Tr
-                            key={entry.path}
-                            className={`file-table-row${selected ? ' file-table-row--selected' : ''}`}
-                            isClickable
-                            isRowSelected={selected}
-                            onClick={(event) => handleRowClick(event, entry)}
-                            onDoubleClick={(event) => handleRowDoubleClick(event, entry)}
-                            onContextMenu={handleContextMenu}
-                        >
-                            <Td
-                                select={{
-                                    rowIndex: 0,
-                                    onSelect: (event) => handleRowCheckbox(event, entry),
-                                    isSelected: selected,
+                            aria-label={_("Select all")}
+                        />
+                        {names.map((name, index) => (
+                            <Th
+                                key={index}
+                                sort={{
+                                    sortBy: {
+                                        index: activeSortIndex,
+                                        direction: activeSortDirection,
+                                    },
+                                    onSort: handleSort,
+                                    columnIndex: index,
                                 }}
-                            />
-                            <Td dataLabel={names[0]}>
-                                <span className="file-name-cell">
-                                    <FileIcon type={entry.type} name={entry.name} className="file-icon" />
-                                    <span className="file-name">{entry.name}</span>
-                                    {entry.linkTarget && (
-                                        <span className="file-link-target"> &rarr; {entry.linkTarget}</span>
-                                    )}
-                                </span>
-                            </Td>
-                            <Td dataLabel={names[1]}>
-                                {entry.type === 'directory' ? '-' : formatSize(entry.size)}
-                            </Td>
-                            <Td dataLabel={names[2]}>
-                                {formatDate(entry.modified)}
-                            </Td>
-                            <Td dataLabel={names[3]}>
-                                {entry.modeOctal}
-                            </Td>
-                            <Td dataLabel={names[4]}>
-                                {entry.owner}{entry.group ? `:${entry.group}` : ''}
-                            </Td>
-                        </Tr>
-                    );
-                })}
-            </Tbody>
-        </Table>
+                            >
+                                {name}
+                            </Th>
+                        ))}
+                    </Tr>
+                </Thead>
+                <Tbody>
+                    {sortedEntries.map((entry) => {
+                        const selected = isSelected(entry);
+                        return (
+                            <Tr
+                                key={entry.path}
+                                className={`file-table-row${selected ? ' file-table-row--selected' : ''}`}
+                                isClickable
+                                isRowSelected={selected}
+                                onClick={(event) => handleRowClick(event, entry)}
+                                onDoubleClick={(event) => handleRowDoubleClick(event, entry)}
+                                onContextMenu={(event) => handleRowContextMenu(event, entry)}
+                            >
+                                <Td
+                                    select={{
+                                        rowIndex: 0,
+                                        onSelect: (event) => handleRowCheckbox(event, entry),
+                                        isSelected: selected,
+                                    }}
+                                />
+                                <Td dataLabel={names[0]}>
+                                    <span className="file-name-cell">
+                                        <FileIcon type={entry.type} name={entry.name} className="file-icon" />
+                                        <span className="file-name">{entry.name}</span>
+                                        {entry.linkTarget && (
+                                            <span className="file-link-target"> &rarr; {entry.linkTarget}</span>
+                                        )}
+                                    </span>
+                                </Td>
+                                <Td dataLabel={names[1]}>
+                                    {entry.type === 'directory' ? '-' : formatSize(entry.size)}
+                                </Td>
+                                <Td dataLabel={names[2]}>
+                                    {formatDate(entry.modified)}
+                                </Td>
+                                <Td dataLabel={names[3]}>
+                                    {entry.modeOctal}
+                                </Td>
+                                <Td dataLabel={names[4]}>
+                                    {entry.owner}{entry.group ? `:${entry.group}` : ''}
+                                </Td>
+                            </Tr>
+                        );
+                    })}
+                </Tbody>
+            </Table>
+
+            {/* Context menu */}
+            {contextMenu && (
+                <ContextMenu
+                    x={contextMenu.x}
+                    y={contextMenu.y}
+                    entry={contextMenu.entry}
+                    onClose={handleCloseContextMenu}
+                    onCreateDialog={handleCreateDialog}
+                    onRenameDialog={handleRenameDialog}
+                    onDeleteDialog={handleDeleteDialog}
+                />
+            )}
+
+            {/* Dialogs */}
+            {createDialogType && (
+                <CreateDialog
+                    type={createDialogType}
+                    isOpen={true}
+                    onClose={() => setCreateDialogType(null)}
+                />
+            )}
+            {renameEntry && (
+                <RenameDialog
+                    entry={renameEntry}
+                    isOpen={true}
+                    onClose={() => setRenameEntry(null)}
+                />
+            )}
+            {deleteEntry && (
+                <DeleteDialog
+                    entry={deleteEntry}
+                    isOpen={true}
+                    onClose={() => setDeleteEntry(null)}
+                />
+            )}
+        </div>
     );
 };
