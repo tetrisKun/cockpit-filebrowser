@@ -59,17 +59,21 @@ const cockpitPoPlugin = {
                         const translations = parsed.translations[''] || {};
 
                         const entries = {};
+                        let pluralFunc = '(n) => 0';
                         for (const [msgid, trans] of Object.entries(translations)) {
                             if (!msgid) {
                                 // Header
                                 const headers = trans.msgstr[0] || '';
                                 const langMatch = headers.match(/Language:\s*(.+)/);
                                 const pluralMatch = headers.match(/Plural-Forms:\s*nplurals=(\d+);\s*plural=(.+?);/);
+                                // Convert plural expression to JS arrow function
+                                if (pluralMatch) {
+                                    const expr = pluralMatch[2].trim();
+                                    pluralFunc = `(n) => +(${expr})`;
+                                }
                                 entries[''] = {
                                     language: langMatch ? langMatch[1].trim() : lang,
-                                    'plural-forms': pluralMatch
-                                        ? `nplurals=${pluralMatch[1]}; plural=${pluralMatch[2]};`
-                                        : 'nplurals=1; plural=0;',
+                                    'plural-forms': '__PLURAL_FUNC__',
                                     'language-direction': 'ltr'
                                 };
                                 continue;
@@ -83,7 +87,9 @@ const cockpitPoPlugin = {
                             entries[msgid] = [null, ...msgstrs];
                         }
 
-                        const js = `cockpit.locale(${JSON.stringify(entries, null, 1)});`;
+                        let js = `cockpit.locale(${JSON.stringify(entries, null, 1)});`;
+                        // Replace the placeholder string with actual JS function
+                        js = js.replace('"__PLURAL_FUNC__"', pluralFunc);
                         fs.writeFileSync(outPath, js);
                         console.log(`Generated ${outPath}`);
                     });
