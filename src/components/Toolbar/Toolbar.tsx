@@ -9,6 +9,7 @@ import {
 import { Button } from "@patternfly/react-core/dist/esm/components/Button/index.js";
 import { Checkbox } from "@patternfly/react-core/dist/esm/components/Checkbox/index.js";
 import { ToggleGroup, ToggleGroupItem } from "@patternfly/react-core/dist/esm/components/ToggleGroup/index.js";
+import { SearchInput } from "@patternfly/react-core/dist/esm/components/SearchInput/index.js";
 import { ArrowLeftIcon } from "@patternfly/react-icons/dist/esm/icons/arrow-left-icon.js";
 import { ArrowRightIcon } from "@patternfly/react-icons/dist/esm/icons/arrow-right-icon.js";
 import { ArrowUpIcon } from "@patternfly/react-icons/dist/esm/icons/arrow-up-icon.js";
@@ -18,16 +19,24 @@ import { ThLargeIcon } from "@patternfly/react-icons/dist/esm/icons/th-large-ico
 import { PlusIcon } from "@patternfly/react-icons/dist/esm/icons/plus-icon.js";
 import { FolderOpenIcon } from "@patternfly/react-icons/dist/esm/icons/folder-open-icon.js";
 import { UploadIcon } from "@patternfly/react-icons/dist/esm/icons/upload-icon.js";
+import { DownloadIcon } from "@patternfly/react-icons/dist/esm/icons/download-icon.js";
 import { useFileBrowser } from '../../store/FileBrowserContext';
 import { PathBar } from './PathBar';
 import { uploadFiles } from '../Upload/UploadZone';
+import * as fs from '../../api/cockpit-fs';
 
 const _ = cockpit.gettext;
 
-export const Toolbar: React.FC = () => {
+export interface ToolbarProps {
+    onSearch?: (query: string) => void;
+}
+
+export const Toolbar: React.FC<ToolbarProps> = ({ onSearch }) => {
     const { state, dispatch, navigate, refresh } = useFileBrowser();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [uploadingFromButton, setUploadingFromButton] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [downloading, setDownloading] = useState(false);
 
     const handleBack = useCallback(() => {
         dispatch({ type: 'NAVIGATE_BACK' });
@@ -89,9 +98,58 @@ export const Toolbar: React.FC = () => {
         }
     }, [state.currentPath, refresh]);
 
+    const handleSearchSubmit = useCallback(() => {
+        if (searchQuery.trim() && onSearch) {
+            onSearch(searchQuery.trim());
+        }
+    }, [searchQuery, onSearch]);
+
+    const handleSearchKeyDown = useCallback((event: React.KeyboardEvent) => {
+        if (event.key === 'Enter' && searchQuery.trim() && onSearch) {
+            onSearch(searchQuery.trim());
+        }
+    }, [searchQuery, onSearch]);
+
+    const handleDownload = useCallback(async () => {
+        const selectedPaths = Array.from(state.selectedEntries);
+        if (selectedPaths.length === 0) return;
+
+        setDownloading(true);
+        try {
+            if (selectedPaths.length === 1) {
+                // Single selection: find the entry to determine type
+                const entry = state.entries.find(e => e.path === selectedPaths[0]);
+                if (entry) {
+                    if (entry.type === 'directory') {
+                        await fs.downloadArchive(entry.path);
+                    } else {
+                        await fs.downloadFile(entry.path);
+                    }
+                }
+            } else {
+                // Multiple selection: download each as archive
+                for (const path of selectedPaths) {
+                    const entry = state.entries.find(e => e.path === path);
+                    if (entry) {
+                        if (entry.type === 'directory') {
+                            await fs.downloadArchive(entry.path);
+                        } else {
+                            await fs.downloadFile(entry.path);
+                        }
+                    }
+                }
+            }
+        } catch (err: any) {
+            console.error('Download error:', err);
+        } finally {
+            setDownloading(false);
+        }
+    }, [state.selectedEntries, state.entries]);
+
     const canGoBack = state.historyIndex > 0;
     const canGoForward = state.historyIndex < state.history.length - 1;
     const canGoUp = state.currentPath !== '/';
+    const hasSelection = state.selectedEntries.size > 0;
 
     return (
         <PFToolbar>
@@ -220,6 +278,34 @@ export const Toolbar: React.FC = () => {
                         >
                             {uploadingFromButton ? _("Uploading...") : _("Upload")}
                         </Button>
+                    </ToolbarItem>
+                    <ToolbarItem>
+                        <Button
+                            variant="secondary"
+                            icon={<DownloadIcon />}
+                            onClick={handleDownload}
+                            isDisabled={!hasSelection || downloading}
+                            isLoading={downloading}
+                            size="sm"
+                        >
+                            {downloading ? _("Downloading...") : _("Download")}
+                        </Button>
+                    </ToolbarItem>
+                </ToolbarGroup>
+
+                {/* Search */}
+                <ToolbarGroup align={{ default: 'alignEnd' }}>
+                    <ToolbarItem>
+                        <SearchInput
+                            placeholder={_("Search files...")}
+                            value={searchQuery}
+                            onChange={(_event, value) => setSearchQuery(value)}
+                            onSearch={handleSearchSubmit}
+                            onKeyDown={handleSearchKeyDown}
+                            onClear={() => setSearchQuery('')}
+                            aria-label={_("Search files")}
+                            style={{ maxWidth: '220px' }}
+                        />
                     </ToolbarItem>
                 </ToolbarGroup>
             </ToolbarContent>
