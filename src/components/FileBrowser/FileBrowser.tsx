@@ -4,6 +4,7 @@ import { Spinner } from "@patternfly/react-core/dist/esm/components/Spinner/inde
 import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
 import { useFileBrowser } from '../../store/FileBrowserContext';
 import { FileTable } from './FileTable';
+import { UploadZone } from '../Upload/UploadZone';
 import './file-browser.scss';
 
 const _ = cockpit.gettext;
@@ -30,13 +31,15 @@ export const FileBrowser: React.FC = () => {
     }
 
     return (
-        <div className="file-browser">
-            {state.viewMode === 'table' && <FileTable />}
-            {state.viewMode === 'grid' && (
-                <div className="file-browser--grid-placeholder">
-                    {_("Grid view coming soon")}
-                </div>
-            )}
-        </div>
+        <UploadZone>
+            <div className="file-browser">
+                {state.viewMode === 'table' && <FileTable />}
+                {state.viewMode === 'grid' && (
+                    <div className="file-browser--grid-placeholder">
+                        {_("Grid view coming soon")}
+                    </div>
+                )}
+            </div>
+        </UploadZone>
     );
 };

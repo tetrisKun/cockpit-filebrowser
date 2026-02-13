@@ -1,0 +1,66 @@
+.upload-zone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-zone__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 102, 204, 0.08);
+    border: 2px dashed var(--pf-t--global--border--color--brand--default, #0066cc);
+    border-radius: var(--pf-t--global--border--radius--small, 3px);
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+}
+
+.upload-zone__overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--pf-t--global--spacer--md, 1rem);
+    padding: var(--pf-t--global--spacer--xl, 2rem);
+    background-color: var(--pf-t--global--background--color--primary--default, #fff);
+    border-radius: var(--pf-t--global--border--radius--medium, 6px);
+    box-shadow: var(--pf-t--global--box-shadow--md, 0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.upload-zone__overlay-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--pf-t--global--icon--color--brand--default, #0066cc);
+}
+
+.upload-zone__overlay-text {
+    font-size: var(--pf-t--global--font--size--lg, 1.125rem);
+    font-weight: var(--pf-t--global--font--weight--body--bold, 700);
+    color: var(--pf-t--global--text--color--brand--default, #0066cc);
+    margin: 0;
+}
+
+.upload-zone__progress {
+    position: fixed;
+    bottom: var(--pf-t--global--spacer--md, 1rem);
+    right: var(--pf-t--global--spacer--md, 1rem);
+    width: 320px;
+    z-index: 200;
+    padding: var(--pf-t--global--spacer--md, 1rem);
+    background-color: var(--pf-t--global--background--color--primary--default, #fff);
+    border-radius: var(--pf-t--global--border--radius--medium, 6px);
+    box-shadow: var(--pf-t--global--box-shadow--lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
+.upload-zone__error {
+    position: fixed;
+    bottom: var(--pf-t--global--spacer--md, 1rem);
+    right: var(--pf-t--global--spacer--md, 1rem);
+    width: 400px;
+    z-index: 200;
+}

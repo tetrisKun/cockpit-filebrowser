@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import cockpit from 'cockpit';
 import {
     Toolbar as PFToolbar,
@@ -20,11 +20,14 @@ import { FolderOpenIcon } from "@patternfly/react-icons/dist/esm/icons/folder-op
 import { UploadIcon } from "@patternfly/react-icons/dist/esm/icons/upload-icon.js";
 import { useFileBrowser } from '../../store/FileBrowserContext';
 import { PathBar } from './PathBar';
+import { uploadFiles } from '../Upload/UploadZone';
 
 const _ = cockpit.gettext;
 
 export const Toolbar: React.FC = () => {
     const { state, dispatch, navigate, refresh } = useFileBrowser();
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const [uploadingFromButton, setUploadingFromButton] = useState(false);
 
     const handleBack = useCallback(() => {
         dispatch({ type: 'NAVIGATE_BACK' });
@@ -64,8 +67,27 @@ export const Toolbar: React.FC = () => {
     }, []);
 
     const handleUpload = useCallback(() => {
-        // Placeholder for upload dialog
+        fileInputRef.current?.click();
     }, []);
+
+    const handleFileInputChange = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (!files || files.length === 0) return;
+
+        setUploadingFromButton(true);
+        try {
+            await uploadFiles(files, state.currentPath);
+            refresh();
+        } catch (err: any) {
+            console.error('Upload error:', err);
+        } finally {
+            setUploadingFromButton(false);
+            // Reset input so re-selecting the same file triggers onChange
+            if (fileInputRef.current) {
+                fileInputRef.current.value = '';
+            }
+        }
+    }, [state.currentPath, refresh]);
 
     const canGoBack = state.historyIndex > 0;
     const canGoForward = state.historyIndex < state.history.length - 1;
@@ -73,6 +95,13 @@ export const Toolbar: React.FC = () => {
 
     return (
         <PFToolbar>
+            <input
+                type="file"
+                multiple
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+                onChange={handleFileInputChange}
+            />
             <ToolbarContent>
                 {/* Navigation buttons */}
                 <ToolbarGroup>
@@ -185,9 +214,11 @@ export const Toolbar: React.FC = () => {
                             variant="secondary"
                             icon={<UploadIcon />}
                             onClick={handleUpload}
+                            isDisabled={uploadingFromButton}
+                            isLoading={uploadingFromButton}
                             size="sm"
                         >
-                            {_("Upload")}
+                            {uploadingFromButton ? _("Uploading...") : _("Upload")}
                         </Button>
                     </ToolbarItem>
                 </ToolbarGroup>
