@@ -163,39 +163,19 @@ export async function stat(filePath: string): Promise<FileStats> {
 /**
  * Read file contents as text.
  */
-export function readFile(filePath: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const handle = cockpit.file(filePath, { superuser: "try" as const });
-        handle.read()
-            .then((content: string) => {
-                resolve(content || '');
-            })
-            .catch((err: Error) => {
-                reject(err);
-            })
-            .finally(() => {
-                handle.close();
-            });
-    });
+export async function readFile(filePath: string): Promise<string> {
+    const content = await cockpit.spawn(['cat', filePath], spawnOptions);
+    return content || '';
 }
 
 /**
  * Write text content to a file.
  */
-export function writeFile(filePath: string, content: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-        const handle = cockpit.file(filePath, { superuser: "try" as const });
-        handle.replace(content)
-            .then(() => {
-                resolve();
-            })
-            .catch((err: Error) => {
-                reject(err);
-            })
-            .finally(() => {
-                handle.close();
-            });
-    });
+export async function writeFile(filePath: string, content: string): Promise<void> {
+    // Use cockpit.spawn with tee to write content via stdin
+    const proc = cockpit.spawn(['tee', filePath], spawnOptions);
+    proc.input(content);
+    await proc;
 }
 
 /**
@@ -340,6 +320,36 @@ export async function downloadArchive(filePath: string): Promise<void> {
     const a = document.createElement('a');
     a.href = url;
     a.download = `${baseName}.tar.gz`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+/**
+ * Download multiple files/directories as a single tar.gz archive.
+ */
+export async function downloadMultipleAsArchive(paths: string[], parentDir: string): Promise<void> {
+    const baseNames = paths.map(p => p.split('/').pop() || '').filter(Boolean);
+    if (baseNames.length === 0) return;
+
+    const archiveName = baseNames.length === 1 ? baseNames[0] : 'files';
+
+    const output = await cockpit.spawn(
+        ['tar', 'czf', '-', '-C', parentDir, ...baseNames],
+        { ...spawnOptions, binary: true as any }
+    );
+
+    const bytes = typeof output === 'string'
+        ? new TextEncoder().encode(output)
+        : new Uint8Array(output as ArrayBuffer);
+
+    const blob = new Blob([bytes], { type: 'application/gzip' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${archiveName}.tar.gz`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

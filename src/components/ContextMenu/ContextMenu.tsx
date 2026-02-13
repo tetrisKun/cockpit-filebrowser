@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef, useState } from 'react';
 import cockpit from 'cockpit';
 import { Menu, MenuContent, MenuList, MenuItem } from "@patternfly/react-core/dist/esm/components/Menu/index.js";
 import { Divider } from "@patternfly/react-core/dist/esm/components/Divider/index.js";
@@ -24,9 +24,13 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 }) => {
     const { state, dispatch, refresh } = useFileBrowser();
 
-    // Close on click outside or Escape
+    // Close on click outside (any mouse button) or Escape
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleMouseDown = (event: MouseEvent) => {
+            // Don't close if clicking inside the menu
+            if (menuRef.current && menuRef.current.contains(event.target as Node)) {
+                return;
+            }
             onClose();
         };
 
@@ -36,15 +40,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
             }
         };
 
-        // Delay adding click listener to avoid catching the same right-click event
+        // Delay adding mousedown listener to avoid catching the same right-click event
         const timer = setTimeout(() => {
-            document.addEventListener('click', handleClickOutside);
+            document.addEventListener('mousedown', handleMouseDown);
         }, 0);
         document.addEventListener('keydown', handleKeyDown);
 
         return () => {
             clearTimeout(timer);
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('mousedown', handleMouseDown);
             document.removeEventListener('keydown', handleKeyDown);
         };
     }, [onClose]);
@@ -165,10 +169,31 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     const isDirectory = entry?.type === 'directory';
     const hasClipboard = state.clipboard !== null;
 
+    const menuRef = useRef<HTMLDivElement>(null);
+    const [pos, setPos] = useState({ left: x, top: y });
+
+    useEffect(() => {
+        const el = menuRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        let newLeft = x;
+        let newTop = y;
+        if (x + rect.width > vw) newLeft = x - rect.width;
+        if (y + rect.height > vh) newTop = y - rect.height;
+        if (newLeft < 0) newLeft = 4;
+        if (newTop < 0) newTop = 4;
+        if (newLeft !== pos.left || newTop !== pos.top) {
+            setPos({ left: newLeft, top: newTop });
+        }
+    }, [x, y]);
+
     return (
         <div
+            ref={menuRef}
             className="context-menu-overlay"
-            style={{ position: 'fixed', left: x, top: y, zIndex: 9999 }}
+            style={{ position: 'fixed', left: pos.left, top: pos.top, zIndex: 9999 }}
         >
             <Menu className="context-menu">
                 <MenuContent>

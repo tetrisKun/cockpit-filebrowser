@@ -1,6 +1,10 @@
 .file-browser {
     width: 100%;
-    min-height: 200px;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 
     &--loading {
         display: flex;
@@ -22,9 +26,115 @@
     }
 }
 
+/* ===== File table: fixed header + scrollable body ===== */
+
+.file-table-container {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Table as flex column: thead fixed, tbody scrolls */
+.file-table-container .pf-v6-c-table {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Header: block layout, fixed at top */
+.file-table-container .pf-v6-c-table > thead {
+    flex-shrink: 0;
+    display: block;
+    background-color: var(--pf-v6-c-table--BackgroundColor, #fff);
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
+    border-bottom: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+}
+
+/* Body: block layout, scrollable */
+.file-table-container .pf-v6-c-table > tbody {
+    display: block;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+/* Rows: flex layout for consistent column sizing */
+.file-table-container .pf-v6-c-table tr {
+    display: flex !important;
+    width: 100%;
+}
+
+/* Cells: override PF max-width to allow flex sizing */
+.file-table-container .pf-v6-c-table th,
+.file-table-container .pf-v6-c-table td {
+    max-width: none !important;
+    overflow: hidden;
+}
+
+/* Header cells: flex centering for checkbox + text alignment */
+.file-table-container .pf-v6-c-table th {
+    display: flex;
+    align-items: center;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+/* Reset PF6 negative margins on sort button */
+.file-table-container .pf-v6-c-table th .pf-v6-c-table__button {
+    margin: 0 !important;
+}
+
+/* Column 1: Checkbox */
+.file-table-container .pf-v6-c-table th:nth-child(1),
+.file-table-container .pf-v6-c-table td:nth-child(1) {
+    flex: 0 0 48px;
+    width: 48px;
+}
+
+/* Column 2: Name */
+.file-table-container .pf-v6-c-table th:nth-child(2),
+.file-table-container .pf-v6-c-table td:nth-child(2) {
+    flex: 3;
+    min-width: 0;
+}
+
+/* Column 3: Size */
+.file-table-container .pf-v6-c-table th:nth-child(3),
+.file-table-container .pf-v6-c-table td:nth-child(3) {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Column 4: Modified */
+.file-table-container .pf-v6-c-table th:nth-child(4),
+.file-table-container .pf-v6-c-table td:nth-child(4) {
+    flex: 2;
+    min-width: 0;
+}
+
+/* Column 5: Permissions */
+.file-table-container .pf-v6-c-table th:nth-child(5),
+.file-table-container .pf-v6-c-table td:nth-child(5) {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Column 6: Owner */
+.file-table-container .pf-v6-c-table th:nth-child(6),
+.file-table-container .pf-v6-c-table td:nth-child(6) {
+    flex: 1;
+    min-width: 0;
+}
+
 /* File table rows */
 .file-table-row {
     cursor: pointer;
+    touch-action: manipulation;
 
     &:hover {
         background-color: var(--pf-t--global--background--color--primary--hover, #f0f0f0);
@@ -63,6 +173,64 @@
     font-style: italic;
     font-size: 0.875em;
     margin-left: 0.25rem;
+}
+
+/* ===== Responsive: card layout below 768px ===== */
+@media (max-width: 767px) {
+    /* Hide table header */
+    .file-table-container .pf-v6-c-table > thead {
+        display: none !important;
+    }
+
+    /* Each row becomes a vertical card */
+    .file-table-container .pf-v6-c-table tr {
+        flex-wrap: wrap !important;
+        border-bottom: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+        padding: 0.5rem 0.25rem;
+    }
+
+    /* Override PF6 built-in responsive data-label display */
+    .file-table-container .pf-v6-c-table td::before {
+        display: none !important;
+    }
+
+    /* Hide checkbox column */
+    .file-table-container .pf-v6-c-table td:nth-child(1) {
+        display: none !important;
+    }
+
+    /* Name column: full width, left-aligned, prominent */
+    .file-table-container .pf-v6-c-table td:nth-child(2) {
+        flex: 0 0 100% !important;
+        display: block !important;
+        font-weight: 600;
+        padding-bottom: 0.25rem !important;
+        text-align: left !important;
+    }
+
+    /* Detail columns: inline row below name */
+    .file-table-container .pf-v6-c-table td:nth-child(3),
+    .file-table-container .pf-v6-c-table td:nth-child(4),
+    .file-table-container .pf-v6-c-table td:nth-child(5),
+    .file-table-container .pf-v6-c-table td:nth-child(6) {
+        flex: none !important;
+        width: auto !important;
+        font-size: 0.8125rem;
+        color: var(--pf-t--global--text--color--subtle, #6a6e73);
+        padding: 0.125rem 0.5rem !important;
+    }
+
+    /* Show labels for detail fields */
+    .file-table-container .pf-v6-c-table td:nth-child(3)::before,
+    .file-table-container .pf-v6-c-table td:nth-child(4)::before,
+    .file-table-container .pf-v6-c-table td:nth-child(5)::before,
+    .file-table-container .pf-v6-c-table td:nth-child(6)::before {
+        display: inline !important;
+        content: attr(data-label) ":\00a0";
+        font-weight: 500;
+        color: var(--pf-t--global--text--color--regular, #151515);
+        font-size: 0.75rem;
+    }
 }
 
 /* Path bar styles */

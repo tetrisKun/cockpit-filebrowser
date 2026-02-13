@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import cockpit from 'cockpit';
 import { Nav, NavList, NavItem, NavGroup } from "@patternfly/react-core/dist/esm/components/Nav/index.js";
 import { Button } from "@patternfly/react-core/dist/esm/components/Button/index.js";
@@ -18,38 +18,40 @@ interface QuickAccessItem {
     icon: React.ReactNode;
 }
 
-function getQuickAccessItems(): QuickAccessItem[] {
-    let homePath = '/root';
-    try {
-        const info = cockpit.info as any;
-        if (info && info.home) {
-            homePath = info.home;
-        }
-    } catch {
-        // fallback to /root
-    }
+interface SidebarProps {
+    onNavigate?: () => void;
+}
 
-    return [
+export const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
+    const { state, dispatch, navigate } = useFileBrowser();
+    const [homePath, setHomePath] = useState('/home');
+
+    useEffect(() => {
+        cockpit.spawn(['sh', '-c', 'echo $HOME'], { err: "message" as const })
+            .then((home: string) => {
+                const h = home.trim();
+                if (h) setHomePath(h);
+            })
+            .catch(() => {});
+    }, []);
+
+    const quickAccessItems: QuickAccessItem[] = [
         { label: _("Home"), path: homePath, icon: <HomeIcon /> },
         { label: _("Root"), path: "/", icon: <FolderIcon /> },
         { label: "/tmp", path: "/tmp", icon: <FolderIcon /> },
         { label: "/etc", path: "/etc", icon: <FolderIcon /> },
         { label: "/var/log", path: "/var/log", icon: <FolderIcon /> },
     ];
-}
-
-export const Sidebar: React.FC = () => {
-    const { state, dispatch, navigate } = useFileBrowser();
-
-    const quickAccessItems = getQuickAccessItems();
 
     const handleQuickAccessClick = useCallback((path: string) => {
         navigate(path);
-    }, [navigate]);
+        onNavigate?.();
+    }, [navigate, onNavigate]);
 
     const handleBookmarkClick = useCallback((path: string) => {
         navigate(path);
-    }, [navigate]);
+        onNavigate?.();
+    }, [navigate, onNavigate]);
 
     const handleRemoveBookmark = useCallback((event: React.MouseEvent, path: string) => {
         event.stopPropagation();

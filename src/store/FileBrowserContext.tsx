@@ -71,14 +71,16 @@ export const FileBrowserProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     // Set initial path to user's home directory
     useEffect(() => {
-        try {
-            const info = cockpit.info as any;
-            if (info && info.home) {
-                dispatch({ type: 'SET_PATH', path: info.home });
-            }
-        } catch {
-            // If cockpit.info is not available, stay at /
-        }
+        cockpit.spawn(['sh', '-c', 'echo $HOME'], { err: "message" as const })
+            .then((home: string) => {
+                const homePath = home.trim();
+                if (homePath && mountedRef.current) {
+                    dispatch({ type: 'SET_PATH', path: homePath });
+                }
+            })
+            .catch(() => {
+                // If we can't get home, stay at /
+            });
     }, []);
 
     // Load bookmarks on mount
@@ -115,8 +117,8 @@ export const FileBrowserProvider: React.FC<{ children: React.ReactNode }> = ({ c
         const saveBookmarks = async () => {
             try {
                 await cockpit.spawn(
-                    ['mkdir', '-p', '/root/.config/cockpit-filebrowser'],
-                    { superuser: "try" as const, err: "message" as const }
+                    ['sh', '-c', 'mkdir -p ~/.config/cockpit-filebrowser'],
+                    { err: "message" as const }
                 );
                 const handle = cockpit.file(BOOKMARKS_PATH, { superuser: "try" as const });
                 await handle.replace(JSON.stringify(state.bookmarks));

@@ -1,13 +1,36 @@
 /* Sidebar navigation styles */
 
+/* Compact PF6 nav padding for narrow sidebar */
+.pf-v6-c-page__sidebar {
+    .pf-v6-c-page__sidebar-body {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .pf-v6-c-nav__link {
+        padding: 0.375rem 0.5rem !important;
+        font-size: 0.8125rem;
+    }
+
+    .pf-v6-c-nav__section-title {
+        padding: 0.5rem 0.5rem 0.25rem !important;
+        font-size: 0.75rem;
+    }
+}
+
 .sidebar-nav-item {
     cursor: pointer;
 
     &__icon {
-        margin-right: 0.5rem;
+        margin-right: 0.375rem;
         display: inline-flex;
         align-items: center;
         color: var(--pf-t--global--icon--color--regular, #151515);
+
+        svg {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
     }
 
     &__label {
@@ -50,15 +73,19 @@
 
 /* Empty bookmarks hint */
 .sidebar-bookmarks-empty {
-    padding: var(--pf-t--global--spacer--sm, 0.5rem) var(--pf-t--global--spacer--md, 1rem);
+    padding: 0.375rem 0.5rem;
     color: var(--pf-t--global--text--color--subtle, #6a6e73);
     font-style: italic;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     list-style: none;
 }
 
 /* Bookmark current button at bottom */
 .sidebar-bookmark-current {
-    padding: var(--pf-t--global--spacer--md, 1rem);
+    padding: 0.5rem;
     border-top: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+
+    .pf-v6-c-button {
+        font-size: 0.8125rem;
+    }
 }

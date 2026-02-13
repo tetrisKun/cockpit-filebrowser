@@ -129,10 +129,18 @@ export const FileTable: React.FC = () => {
     }, [dispatch]);
 
     const handleRowClick = useCallback((event: React.MouseEvent, entry: FileEntry) => {
+        // Skip if clicking on checkbox cell to avoid overriding multi-select
+        const target = event.target as HTMLElement;
+        if (target.tagName === 'INPUT' || target.closest('.pf-v6-c-table__check')) {
+            return;
+        }
         event.preventDefault();
         const multi = event.ctrlKey || event.metaKey;
         dispatch({ type: 'SELECT_ENTRY', path: entry.path, multi });
-    }, [dispatch]);
+        if (state.propertiesOpen) {
+            dispatch({ type: 'CLOSE_PROPERTIES' });
+        }
+    }, [dispatch, state.propertiesOpen]);
 
     const handleRowDoubleClick = useCallback((event: React.MouseEvent, entry: FileEntry) => {
         event.preventDefault();
@@ -146,13 +154,20 @@ export const FileTable: React.FC = () => {
     const handleRowContextMenu = useCallback((event: React.MouseEvent, entry: FileEntry) => {
         event.preventDefault();
         event.stopPropagation();
+        dispatch({ type: 'SELECT_ENTRY', path: entry.path, multi: false });
+        if (state.propertiesOpen) {
+            dispatch({ type: 'CLOSE_PROPERTIES' });
+        }
         setContextMenu({ x: event.clientX, y: event.clientY, entry });
-    }, []);
+    }, [dispatch, state.propertiesOpen]);
 
     const handleEmptyContextMenu = useCallback((event: React.MouseEvent) => {
         event.preventDefault();
+        if (state.propertiesOpen) {
+            dispatch({ type: 'CLOSE_PROPERTIES' });
+        }
         setContextMenu({ x: event.clientX, y: event.clientY, entry: null });
-    }, []);
+    }, [dispatch, state.propertiesOpen]);
 
     const handleCloseContextMenu = useCallback(() => {
         setContextMenu(null);
@@ -185,7 +200,10 @@ export const FileTable: React.FC = () => {
     const handleRowCheckbox = useCallback((event: React.FormEvent<HTMLInputElement>, entry: FileEntry) => {
         event.stopPropagation();
         dispatch({ type: 'SELECT_ENTRY', path: entry.path, multi: true });
-    }, [dispatch]);
+        if (state.propertiesOpen) {
+            dispatch({ type: 'CLOSE_PROPERTIES' });
+        }
+    }, [dispatch, state.propertiesOpen]);
 
     const names = columnNames();
 
@@ -230,7 +248,7 @@ export const FileTable: React.FC = () => {
     const allSelected = sortedEntries.length > 0 && state.selectedEntries.size === sortedEntries.length;
 
     return (
-        <div onContextMenu={handleEmptyContextMenu}>
+        <div className="file-table-container" onContextMenu={handleEmptyContextMenu}>
             <Table aria-label={_("File listing")} variant="compact">
                 <Thead>
                     <Tr>

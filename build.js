@@ -10,6 +10,20 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Recursive directory copy helper
+function copyDirSync(src, dst) {
+    fs.mkdirSync(dst, { recursive: true });
+    for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+        const srcPath = path.join(src, entry.name);
+        const dstPath = path.join(dst, entry.name);
+        if (entry.isDirectory()) {
+            copyDirSync(srcPath, dstPath);
+        } else {
+            fs.copyFileSync(srcPath, dstPath);
+        }
+    }
+}
+
 const parser = new ArgumentParser();
 parser.add_argument('-w', '--watch', { action: 'store_true' });
 const args = parser.parse_args();
@@ -24,6 +38,13 @@ const copyPlugin = {
             fs.mkdirSync(dist, { recursive: true });
             fs.copyFileSync('src/index.html', path.join(dist, 'index.html'));
             fs.copyFileSync('src/manifest.json', path.join(dist, 'manifest.json'));
+
+            // Copy Monaco Editor files for local loading (CSP blocks CDN)
+            const monacoSrc = path.join(__dirname, 'node_modules', 'monaco-editor', 'min', 'vs');
+            const monacoDst = path.join(dist, 'vs');
+            if (fs.existsSync(monacoSrc)) {
+                copyDirSync(monacoSrc, monacoDst);
+            }
 
             // Generate empty po.js fallback if no translations built
             const poJs = path.join(dist, 'po.js');

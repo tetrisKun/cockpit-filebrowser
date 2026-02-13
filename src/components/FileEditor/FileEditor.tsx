@@ -1,6 +1,20 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import cockpit from 'cockpit';
-import Editor, { OnMount } from '@monaco-editor/react';
+import Editor, { OnMount, loader } from '@monaco-editor/react';
+
+// Load Monaco from local files instead of CDN (Cockpit CSP blocks external scripts)
+loader.config({ paths: { vs: './vs' } });
+
+// Configure Monaco worker path (CSP blocks blob: URLs for workers)
+(window as any).MonacoEnvironment = {
+    getWorkerUrl(_moduleId: string, label: string) {
+        if (label === 'json') return './vs/assets/json.worker-DKiEKt88.js';
+        if (label === 'css' || label === 'scss' || label === 'less') return './vs/assets/css.worker-HnVq6Ewq.js';
+        if (label === 'html' || label === 'handlebars' || label === 'razor') return './vs/assets/html.worker-B51mlPHg.js';
+        if (label === 'typescript' || label === 'javascript') return './vs/assets/ts.worker-CMbG-7ft.js';
+        return './vs/assets/editor.worker-Be8ye1pW.js';
+    }
+};
 import { Button } from "@patternfly/react-core/dist/esm/components/Button/index.js";
 import { Spinner } from "@patternfly/react-core/dist/esm/components/Spinner/index.js";
 import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
@@ -123,6 +137,22 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
         setContent(value || '');
     };
 
+    const editorOptions = {
+        minimap: { enabled: false },
+        fontSize: 14,
+        wordWrap: 'on' as const,
+        scrollBeyondLastLine: false,
+        automaticLayout: true,
+        tabSize: 4,
+        insertSpaces: true,
+        scrollbar: {
+            vertical: 'visible' as const,
+            horizontal: 'visible' as const,
+            verticalScrollbarSize: 12,
+            horizontalScrollbarSize: 12,
+        },
+    };
+
     const showEditor = !isMd || mdViewMode === 'edit' || mdViewMode === 'split';
     const showPreview = isMd && (mdViewMode === 'preview' || mdViewMode === 'split');
 
@@ -164,15 +194,7 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
                                 onChange={handleEditorChange}
                                 onMount={handleEditorMount}
                                 theme="vs-light"
-                                options={{
-                                    minimap: { enabled: false },
-                                    fontSize: 14,
-                                    wordWrap: 'on',
-                                    scrollBeyondLastLine: false,
-                                    automaticLayout: true,
-                                    tabSize: 4,
-                                    insertSpaces: true,
-                                }}
+                                options={editorOptions}
                             />
                         </div>
                         <div className="file-editor-split__preview">
@@ -192,15 +214,7 @@ export const FileEditor: React.FC<FileEditorProps> = ({ path }) => {
                 onChange={handleEditorChange}
                 onMount={handleEditorMount}
                 theme="vs-light"
-                options={{
-                    minimap: { enabled: false },
-                    fontSize: 14,
-                    wordWrap: 'on',
-                    scrollBeyondLastLine: false,
-                    automaticLayout: true,
-                    tabSize: 4,
-                    insertSpaces: true,
-                }}
+                options={editorOptions}
             />
         );
     };

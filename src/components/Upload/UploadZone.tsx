@@ -43,16 +43,13 @@ function readFileAsBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => {
-            const arrayBuffer = reader.result as ArrayBuffer;
-            const bytes = new Uint8Array(arrayBuffer);
-            let binary = '';
-            for (let i = 0; i < bytes.length; i++) {
-                binary += String.fromCharCode(bytes[i]);
-            }
-            resolve(btoa(binary));
+            const dataUrl = reader.result as string;
+            // Strip "data:*/*;base64," prefix to get pure base64
+            const base64 = dataUrl.split(',')[1] || '';
+            resolve(base64);
         };
         reader.onerror = () => reject(reader.error);
-        reader.readAsArrayBuffer(file);
+        reader.readAsDataURL(file);
     });
 }
 

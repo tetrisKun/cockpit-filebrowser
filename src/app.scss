@@ -5,8 +5,95 @@ html, body, #app {
     overflow: hidden;
 }
 
-/* Main content section: fill remaining height, don't scroll itself */
-.main-content-section {
+/* Page main area: never scroll */
+.pf-v6-c-page__main {
     overflow: hidden !important;
+}
+
+/* Sidebar width */
+.pf-v6-c-page {
+    --pf-v6-c-page__sidebar--Width--base: 12rem !important;
+    --pf-v6-c-page__sidebar--Width: 12rem !important;
+    --pf-v6-c-page__sidebar--xl--Width: 12rem !important;
+}
+
+/* Toolbar section: fixed height, never scrolls */
+.toolbar-section {
+    flex-shrink: 0 !important;
+}
+
+/* Content section: fill remaining space, flex column for children */
+.main-content-section {
+    flex: 1 1 0% !important;
     min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+}
+
+/* PF wrapper: flex fill */
+.main-content-section .pf-v6-c-page__main-body {
+    flex: 1 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Drawer: flex fill */
+.main-content-section .pf-v6-c-drawer {
+    flex: 1 !important;
+    min-height: 0 !important;
+}
+
+/* Drawer main: fill drawer height */
+.main-content-section .pf-v6-c-drawer__main {
+    height: 100% !important;
+}
+
+/* Drawer content: flex pass-through, no scroll here */
+.main-content-section .pf-v6-c-drawer__content {
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Drawer body: flex fill */
+.main-content-section .pf-v6-c-drawer__body {
+    flex: 1 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Properties panel scrolls independently */
+.main-content-section .pf-v6-c-drawer__panel {
+    overflow-y: auto;
+}
+
+/* ===== Responsive toolbar below 768px ===== */
+@media (max-width: 767px) {
+    /* First toolbar row: allow wrapping so path bar goes to its own line */
+    .toolbar-section .pf-v6-c-toolbar__content-section {
+        flex-wrap: wrap !important;
+    }
+
+    /* Path bar: force to its own full-width line */
+    .toolbar-section .pf-v6-c-toolbar__content-section > .pf-v6-c-toolbar__item:last-child {
+        flex: 0 0 100% !important;
+        order: 1 !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    /* Action buttons: icon-only (hide text, keep icon) */
+    .toolbar-section .pf-v6-c-button.pf-m-secondary {
+        font-size: 0 !important;
+        gap: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .toolbar-section .pf-v6-c-button.pf-m-secondary .pf-v6-c-button__icon {
+        font-size: 1rem !important;
+    }
 }
