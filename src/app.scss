@@ -1,2 +1,12 @@
-/* cockpit page styles placeholder */
-/* @use "page.scss" is provided by Cockpit runtime */
+/* Full height chain for Cockpit iframe */
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Main content section: fill remaining height, don't scroll itself */
+.main-content-section {
+    overflow: hidden !important;
+    min-height: 0 !important;
+}
