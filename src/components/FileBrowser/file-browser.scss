@@ -1,0 +1,75 @@
+.file-browser {
+    width: 100%;
+    min-height: 200px;
+
+    &--loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--pf-t--global--spacer--xl, 2rem);
+    }
+
+    &--error {
+        padding: var(--pf-t--global--spacer--md, 1rem);
+    }
+
+    &--grid-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--pf-t--global--spacer--xl, 2rem);
+        color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    }
+}
+
+/* File table rows */
+.file-table-row {
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--pf-t--global--background--color--primary--hover, #f0f0f0);
+    }
+
+    &--selected {
+        background-color: var(--pf-t--global--background--color--primary--clicked, #e7f1fa);
+    }
+}
+
+/* File name cell layout */
+.file-name-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* File icon sizing */
+.file-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--pf-t--global--icon--color--regular, #151515);
+}
+
+/* File name text */
+.file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Symlink target indicator */
+.file-link-target {
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    font-style: italic;
+    font-size: 0.875em;
+    margin-left: 0.25rem;
+}
+
+/* Path bar styles */
+.path-bar {
+    min-width: 0;
+
+    &--editing {
+        gap: 0.25rem;
+    }
+}
