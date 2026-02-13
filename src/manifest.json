@@ -1,0 +1,8 @@
+{
+  "requires": { "cockpit": "137" },
+  "tools": {
+    "index": {
+      "label": "File Browser"
+    }
+  }
+}

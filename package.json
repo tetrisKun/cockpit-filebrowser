@@ -1,0 +1,42 @@
+{
+  "name": "cockpit-filebrowser",
+  "version": "0.1.0",
+  "description": "A modern file browser for Cockpit",
+  "type": "module",
+  "main": "index.js",
+  "license": "LGPL-2.1",
+  "engines": { "node": ">= 16" },
+  "scripts": {
+    "watch": "ESBUILD_WATCH='true' ./build.js",
+    "build": "./build.js",
+    "eslint": "eslint src/",
+    "eslint:fix": "eslint --fix src/"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@patternfly/patternfly": "^6.1.0",
+    "@patternfly/react-core": "^6.1.0",
+    "@patternfly/react-icons": "^6.1.0",
+    "@patternfly/react-table": "^6.1.0",
+    "@patternfly/react-styles": "^6.4.0",
+    "@patternfly/react-code-editor": "^6.1.0",
+    "@monaco-editor/react": "^4.7.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "mermaid": "^11.4.0",
+    "esbuild": "^0.27.0",
+    "esbuild-sass-plugin": "^3.6.0",
+    "argparse": "^2.0.1",
+    "gettext-parser": "^9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "stylelint": "^17.1.0"
+  }
+}
