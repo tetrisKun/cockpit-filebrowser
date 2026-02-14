@@ -1,5 +1,5 @@
 Name:           cockpit-filebrowser
-Version:        0.1.0
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        Modern file browser plugin for Cockpit web console
 License:        LGPL-2.1-only
