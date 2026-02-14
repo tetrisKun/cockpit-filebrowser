@@ -13,6 +13,8 @@ import { ContextMenu } from '../ContextMenu/ContextMenu';
 import { CreateDialog } from '../Dialogs/CreateDialog';
 import { DeleteDialog } from '../Dialogs/DeleteDialog';
 import { RenameDialog } from '../Dialogs/RenameDialog';
+import { CompressDialog } from '../Archive/CompressDialog';
+import { archiveManager } from '../Archive/archive-manager';
 import './file-grid.scss';
 
 const _ = cockpit.gettext;
@@ -33,6 +35,7 @@ export const FileGrid: React.FC = () => {
     const [createDialogType, setCreateDialogType] = useState<'file' | 'directory' | 'link' | null>(null);
     const [renameEntry, setRenameEntry] = useState<FileEntry | null>(null);
     const [deleteEntry, setDeleteEntry] = useState<FileEntry | null>(null);
+    const [compressInfo, setCompressInfo] = useState<{ paths: string[]; parentDir: string } | null>(null);
 
     // Sort entries: directories first, then by sortField
     const sortedEntries = useMemo(() => {
@@ -113,6 +116,10 @@ export const FileGrid: React.FC = () => {
         setDeleteEntry(entry);
     }, []);
 
+    const handleCompressDialog = useCallback((paths: string[], parentDir: string) => {
+        setCompressInfo({ paths, parentDir });
+    }, []);
+
     const isSelected = useCallback((entry: FileEntry): boolean => {
         return state.selectedEntries.has(entry.path);
     }, [state.selectedEntries]);
@@ -139,6 +146,7 @@ export const FileGrid: React.FC = () => {
                         onCreateDialog={handleCreateDialog}
                         onRenameDialog={handleRenameDialog}
                         onDeleteDialog={handleDeleteDialog}
+                        onCompressDialog={handleCompressDialog}
                     />
                 )}
 
@@ -196,6 +204,7 @@ export const FileGrid: React.FC = () => {
                     onCreateDialog={handleCreateDialog}
                     onRenameDialog={handleRenameDialog}
                     onDeleteDialog={handleDeleteDialog}
+                    onCompressDialog={handleCompressDialog}
                 />
             )}
 
@@ -219,6 +228,17 @@ export const FileGrid: React.FC = () => {
                     entry={deleteEntry}
                     isOpen={true}
                     onClose={() => setDeleteEntry(null)}
+                />
+            )}
+            {compressInfo && (
+                <CompressDialog
+                    isOpen={true}
+                    onClose={() => {
+                        setCompressInfo(null);
+                        archiveManager.onQueueDone(() => navigate(state.currentPath));
+                    }}
+                    paths={compressInfo.paths}
+                    parentDir={compressInfo.parentDir}
                 />
             )}
         </div>

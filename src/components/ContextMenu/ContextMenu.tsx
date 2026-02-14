@@ -5,6 +5,7 @@ import { Divider } from "@patternfly/react-core/dist/esm/components/Divider/inde
 import { FileEntry } from '../../api/types';
 import { useFileBrowser } from '../../store/FileBrowserContext';
 import * as fs from '../../api/cockpit-fs';
+import { archiveManager } from '../Archive/archive-manager';
 import './context-menu.scss';
 
 const _ = cockpit.gettext;
@@ -17,10 +18,11 @@ export interface ContextMenuProps {
     onCreateDialog: (type: 'file' | 'directory' | 'link') => void;
     onRenameDialog: (entry: FileEntry) => void;
     onDeleteDialog: (entry: FileEntry) => void;
+    onCompressDialog: (paths: string[], parentDir: string) => void;
 }
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
-    x, y, entry, onClose, onCreateDialog, onRenameDialog, onDeleteDialog,
+    x, y, entry, onClose, onCreateDialog, onRenameDialog, onDeleteDialog, onCompressDialog,
 }) => {
     const { state, dispatch, refresh } = useFileBrowser();
 
@@ -165,6 +167,24 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         onClose();
     }, [entry, onDeleteDialog, onClose]);
 
+    const handleExtract = useCallback(() => {
+        if (entry && entry.type === 'file') {
+            archiveManager.onQueueDone(() => refresh());
+            archiveManager.extract(entry.path, state.currentPath);
+        }
+        onClose();
+    }, [entry, state.currentPath, refresh, onClose]);
+
+    const handleCompress = useCallback(() => {
+        if (entry) {
+            onCompressDialog([entry.path], state.currentPath);
+        }
+        onClose();
+    }, [entry, state.currentPath, onCompressDialog, onClose]);
+
+    const canExtractEntry = entry?.type === 'file' && archiveManager.canExtract(entry.name);
+    const canCompress = archiveManager.getCompressFormats().length > 0;
+
     const isFile = entry?.type === 'file';
     const isDirectory = entry?.type === 'directory';
     const hasClipboard = state.clipboard !== null;
@@ -247,6 +267,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                                 <Divider component="li" />
                             </>
                         )}
+
+                        {/* Archive operations */}
+                        {canExtractEntry && (
+                            <MenuItem onClick={handleExtract}>{_("Extract Here")}</MenuItem>
+                        )}
+                        {entry && canCompress && (
+                            <MenuItem onClick={handleCompress}>{_("Compress to...")}</MenuItem>
+                        )}
+                        {(canExtractEntry || (entry && canCompress)) && <Divider component="li" />}
 
                         {/* Properties and Bookmark */}
                         {entry && (

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cockpit-filebrowser 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 17:51+0800\n"
+"POT-Creation-Date: 2026-02-14 15:03+0800\n"
 "PO-Revision-Date: 2026-02-14 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -16,153 +16,313 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/manifest.json
-msgid "File Browser"
-msgstr "Tiedostoselain"
+#: src/app.tsx:196 src/app.tsx:198 src/components/Toolbar/Toolbar.tsx:401
+#: src/components/Toolbar/Toolbar.tsx:402
+msgid "Search files"
+msgstr "Hae tiedostoja"
 
-#: src/components/Sidebar/Sidebar.tsx:33
+#: src/app.tsx:214 src/app.tsx:229 src/app.tsx:242
+#: src/components/Toolbar/Toolbar.tsx:394
+#: src/components/Toolbar/Toolbar.tsx:395
+msgid "Terminal"
+msgstr "Pääte"
+
+#: src/app.tsx:217 src/components/Archive/ArchivePanel.tsx:268
+#: src/components/Upload/UploadPanel.tsx:315
+msgid "Minimize"
+msgstr "Pienennä"
+
+#: src/app.tsx:220 src/app.tsx:246 src/components/Archive/ArchivePanel.tsx:271
+#: src/components/Upload/UploadPanel.tsx:318
+msgid "Close"
+msgstr "Sulje"
+
+#: src/components/Sidebar/Sidebar.tsx:39
 msgid "Home"
 msgstr "Koti"
 
-#: src/components/Sidebar/Sidebar.tsx:34
+#: src/components/Sidebar/Sidebar.tsx:40
 msgid "Root"
 msgstr "Juuri"
 
-#: src/components/Sidebar/Sidebar.tsx:68
+#: src/components/Sidebar/Sidebar.tsx:70
 msgid "Sidebar navigation"
 msgstr "Sivupalkin navigointi"
 
-#: src/components/Sidebar/Sidebar.tsx:69
+#: src/components/Sidebar/Sidebar.tsx:71
 msgid "Quick Access"
 msgstr "Pikakäyttö"
 
-#: src/components/Sidebar/Sidebar.tsx:85
+#: src/components/Sidebar/Sidebar.tsx:87
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: src/components/Sidebar/Sidebar.tsx:89
+#: src/components/Sidebar/Sidebar.tsx:91
 msgid "No bookmarks yet"
 msgstr "Ei vielä kirjanmerkkejä"
 
-#: src/components/Sidebar/Sidebar.tsx:112
+#: src/components/Sidebar/Sidebar.tsx:114
 msgid "Remove bookmark"
 msgstr "Poista kirjanmerkki"
 
-#: src/components/Sidebar/Sidebar.tsx:131
+#: src/components/Sidebar/Sidebar.tsx:133
 msgid "Bookmark current"
 msgstr "Lisää kirjanmerkki"
 
-#: src/components/FileEditor/FileEditor.tsx:140
+#: src/components/FileEditor/FileEditor.tsx:170
 msgid "Error loading file"
 msgstr "Tiedoston lataaminen epäonnistui"
 
-#: src/components/FileEditor/FileEditor.tsx:213
+#: src/components/FileEditor/FileEditor.tsx:227
 msgid "modified"
 msgstr "muokattu"
 
-#: src/components/FileEditor/FileEditor.tsx:218
+#: src/components/FileEditor/FileEditor.tsx:232
 msgid "Markdown view mode"
 msgstr "Markdown-näkymätila"
 
-#: src/components/FileEditor/FileEditor.tsx:221
-#: src/components/ContextMenu/ContextMenu.tsx:180
+#: src/components/FileEditor/FileEditor.tsx:235
+#: src/components/ContextMenu/ContextMenu.tsx:225
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: src/components/FileEditor/FileEditor.tsx:222
+#: src/components/FileEditor/FileEditor.tsx:236
 msgid "Edit only"
 msgstr "Vain muokkaus"
 
-#: src/components/FileEditor/FileEditor.tsx:228
+#: src/components/FileEditor/FileEditor.tsx:242
 msgid "Split"
 msgstr "Jaa"
 
-#: src/components/FileEditor/FileEditor.tsx:229
+#: src/components/FileEditor/FileEditor.tsx:243
 msgid "Split view"
 msgstr "Jaettu näkymä"
 
-#: src/components/FileEditor/FileEditor.tsx:235
+#: src/components/FileEditor/FileEditor.tsx:249
 msgid "Preview"
 msgstr "Esikatselu"
 
-#: src/components/FileEditor/FileEditor.tsx:236
+#: src/components/FileEditor/FileEditor.tsx:250
 msgid "Preview only"
 msgstr "Vain esikatselu"
 
-#: src/components/FileEditor/FileEditor.tsx:251
+#: src/components/FileEditor/FileEditor.tsx:265
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/components/FileEditor/FileEditor.tsx:256
+#: src/components/FileEditor/FileEditor.tsx:270
 msgid "Close editor"
 msgstr "Sulje editori"
 
-#: src/components/Toolbar/Toolbar.tsx:171
+#: src/components/Archive/ArchivePanel.tsx:187
+msgid "$0 of $1 operations completed successfully"
+msgstr "$0/$1 toimintoa suoritettu onnistuneesti"
+
+#: src/components/Archive/ArchivePanel.tsx:188
+#: src/components/Archive/ArchivePanel.tsx:263
+msgid "Archive operation complete"
+msgstr "Arkistointitoiminto valmis"
+
+#: src/components/Archive/ArchivePanel.tsx:188
+msgid "Archive operation finished with errors"
+msgstr "Arkistointitoiminto päättyi virheisiin"
+
+#: src/components/Archive/ArchivePanel.tsx:234
+#: src/components/Archive/ArchivePanel.tsx:242
+msgid "$0/$1 ops"
+msgstr "$0/$1 toim."
+
+#: src/components/Archive/ArchivePanel.tsx:238
+msgid "Complete"
+msgstr "Valmis"
+
+#: src/components/Archive/ArchivePanel.tsx:248
+#: src/components/Upload/UploadPanel.tsx:293
+msgid "Expand"
+msgstr "Laajenna"
+
+#: src/components/Archive/ArchivePanel.tsx:261
+msgid "Processing $0/$1 operations"
+msgstr "Käsitellään $0/$1 toimintoa"
+
+#: src/components/Archive/ArchivePanel.tsx:264
+msgid "Processed $0/$1 operations"
+msgstr "Käsitelty $0/$1 toimintoa"
+
+#: src/components/Archive/ArchivePanel.tsx:287
+msgid "Total archive progress"
+msgstr "Arkistoinnin kokonaisedistyminen"
+
+#: src/components/Archive/ArchivePanel.tsx:291
+msgid "$0/$1 items"
+msgstr "$0/$1 kohdetta"
+
+#: src/components/Archive/ArchivePanel.tsx:298
+#: src/components/Upload/UploadPanel.tsx:344
+msgid "Cancel all"
+msgstr "Peruuta kaikki"
+
+#: src/components/Archive/ArchivePanel.tsx:308
+#: src/components/Archive/CompressDialog.tsx:76
+#: src/components/Archive/CompressDialog.tsx:104
+#: src/components/Toolbar/Toolbar.tsx:372
+#: src/components/Toolbar/Toolbar.tsx:373
+msgid "Compress"
+msgstr "Pakkaa"
+
+#: src/components/Archive/ArchivePanel.tsx:308
+msgid "Extract"
+msgstr "Pura"
+
+#: src/components/Archive/ArchivePanel.tsx:322
+#: src/components/Upload/UploadPanel.tsx:368
+msgid "Pending"
+msgstr "Odottaa"
+
+#: src/components/Archive/ArchivePanel.tsx:329
+msgid "Progress for $0"
+msgstr "Edistyminen: $0"
+
+#: src/components/Archive/CompressDialog.tsx:78
+msgid "File name"
+msgstr "Tiedoston nimi"
+
+#: src/components/Archive/CompressDialog.tsx:83
+msgid "Archive file name"
+msgstr "Arkiston tiedostonimi"
+
+#: src/components/Archive/CompressDialog.tsx:86
+msgid "Format"
+msgstr "Muoto"
+
+#: src/components/Archive/CompressDialog.tsx:91
+msgid "Archive format"
+msgstr "Arkiston muoto"
+
+#: src/components/Archive/CompressDialog.tsx:99
+msgid "Output: $0"
+msgstr "Tulos: $0"
+
+#: src/components/Archive/CompressDialog.tsx:107
+#: src/components/Toolbar/Toolbar.tsx:481
+#: src/components/Dialogs/DeleteDialog.tsx:85
+#: src/components/Dialogs/CreateDialog.tsx:140
+#: src/components/Dialogs/RenameDialog.tsx:115
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: src/components/Toolbar/Toolbar.tsx:258
+msgid "Hide sidebar"
+msgstr "Piilota sivupalkki"
+
+#: src/components/Toolbar/Toolbar.tsx:258
+msgid "Show sidebar"
+msgstr "Näytä sivupalkki"
+
+#: src/components/Toolbar/Toolbar.tsx:259
+msgid "Toggle sidebar"
+msgstr "Vaihda sivupalkki"
+
+#: src/components/Toolbar/Toolbar.tsx:266
 msgid "Go back"
 msgstr "Takaisin"
 
-#: src/components/Toolbar/Toolbar.tsx:182
+#: src/components/Toolbar/Toolbar.tsx:271
 msgid "Go forward"
 msgstr "Eteenpäin"
 
-#: src/components/Toolbar/Toolbar.tsx:193
+#: src/components/Toolbar/Toolbar.tsx:276
 msgid "Go up"
 msgstr "Ylähakemisto"
 
-#: src/components/Toolbar/Toolbar.tsx:203
+#: src/components/Toolbar/Toolbar.tsx:281
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: src/components/Toolbar/Toolbar.tsx:219
-msgid "View mode"
-msgstr "Näkymätila"
-
-#: src/components/Toolbar/Toolbar.tsx:222
-msgid "Table view"
-msgstr "Taulukkonäkymä"
-
-#: src/components/Toolbar/Toolbar.tsx:228
-msgid "Grid view"
-msgstr "Ruudukkonäkymä"
-
-#: src/components/Toolbar/Toolbar.tsx:240
-msgid "Show hidden files"
-msgstr "Näytä piilotetut tiedostot"
-
-#: src/components/Toolbar/Toolbar.tsx:257
-#: src/components/ContextMenu/ContextMenu.tsx:186
+#: src/components/Toolbar/Toolbar.tsx:296
+#: src/components/Toolbar/Toolbar.tsx:297
+#: src/components/ContextMenu/ContextMenu.tsx:231
 #: src/components/Dialogs/CreateDialog.tsx:27
 msgid "New File"
 msgstr "Uusi tiedosto"
 
-#: src/components/Toolbar/Toolbar.tsx:267
+#: src/components/Toolbar/Toolbar.tsx:303
+#: src/components/Toolbar/Toolbar.tsx:304
 msgid "New Folder"
 msgstr "Uusi kansio"
 
-#: src/components/Toolbar/Toolbar.tsx:279
-msgid "Uploading..."
-msgstr "Lähetetään..."
+#: src/components/Toolbar/Toolbar.tsx:310
+#: src/components/Toolbar/Toolbar.tsx:314
+msgid "Upload Files"
+msgstr "Lähetä tiedostoja"
 
-#: src/components/Toolbar/Toolbar.tsx:279
-msgid "Upload"
-msgstr "Lähetä"
+#: src/components/Toolbar/Toolbar.tsx:322
+#: src/components/Toolbar/Toolbar.tsx:326
+msgid "Upload Folder"
+msgstr "Lähetä kansio"
 
-#: src/components/Toolbar/Toolbar.tsx:291
+#: src/components/Toolbar/Toolbar.tsx:336
 msgid "Downloading..."
 msgstr "Ladataan..."
 
-#: src/components/Toolbar/Toolbar.tsx:291
-#: src/components/ContextMenu/ContextMenu.tsx:215
+#: src/components/Toolbar/Toolbar.tsx:336
+#: src/components/Toolbar/Toolbar.tsx:342
+#: src/components/ContextMenu/ContextMenu.tsx:260
 msgid "Download"
 msgstr "Lataa"
 
-#: src/components/Toolbar/Toolbar.tsx:300
-msgid "Search files..."
-msgstr "Hae tiedostoja..."
+#: src/components/Toolbar/Toolbar.tsx:350
+#: src/components/Toolbar/Toolbar.tsx:351
+#: src/components/ContextMenu/ContextMenu.tsx:239
+msgid "Cut"
+msgstr "Leikkaa"
 
-#: src/components/Toolbar/Toolbar.tsx:306
-msgid "Search files"
-msgstr "Hae tiedostoja"
+#: src/components/Toolbar/Toolbar.tsx:357
+#: src/components/Toolbar/Toolbar.tsx:358
+#: src/components/ContextMenu/ContextMenu.tsx:240
+msgid "Copy"
+msgstr "Kopioi"
+
+#: src/components/Toolbar/Toolbar.tsx:364
+#: src/components/Toolbar/Toolbar.tsx:365
+#: src/components/Toolbar/Toolbar.tsx:461
+#: src/components/Toolbar/Toolbar.tsx:478
+#: src/components/ContextMenu/ContextMenu.tsx:252
+#: src/components/Dialogs/DeleteDialog.tsx:51
+#: src/components/Dialogs/DeleteDialog.tsx:82
+msgid "Delete"
+msgstr "Poista"
+
+#: src/components/Toolbar/Toolbar.tsx:383
+#: src/components/Toolbar/Toolbar.tsx:384
+#: src/components/ContextMenu/ContextMenu.tsx:244
+msgid "Paste"
+msgstr "Liitä"
+
+#: src/components/Toolbar/Toolbar.tsx:408
+#: src/components/Toolbar/Toolbar.tsx:412
+msgid "Show hidden files"
+msgstr "Näytä piilotetut tiedostot"
+
+#: src/components/Toolbar/Toolbar.tsx:420
+msgid "View mode"
+msgstr "Näkymätila"
+
+#: src/components/Toolbar/Toolbar.tsx:423
+msgid "Table view"
+msgstr "Taulukkonäkymä"
+
+#: src/components/Toolbar/Toolbar.tsx:429
+msgid "Grid view"
+msgstr "Ruudukkonäkymä"
+
+#: src/components/Toolbar/Toolbar.tsx:469
+msgid "Are you sure you want to delete $0?"
+msgstr "Haluatko varmasti poistaa $0?"
+
+#: src/components/Toolbar/Toolbar.tsx:471
+msgid "Are you sure you want to delete $0 items?"
+msgstr "Haluatko varmasti poistaa $0 kohdetta?"
 
 #: src/components/Toolbar/PathBar.tsx:72
 msgid "Path input"
@@ -176,53 +336,43 @@ msgstr "Peruuta muokkaus"
 msgid "Edit path"
 msgstr "Muokkaa polkua"
 
-#: src/components/ContextMenu/ContextMenu.tsx:179
+#: src/components/ContextMenu/ContextMenu.tsx:224
 msgid "Open"
 msgstr "Avaa"
 
-#: src/components/ContextMenu/ContextMenu.tsx:187
+#: src/components/ContextMenu/ContextMenu.tsx:232
 #: src/components/Dialogs/CreateDialog.tsx:28
 msgid "New Directory"
 msgstr "Uusi hakemisto"
 
-#: src/components/ContextMenu/ContextMenu.tsx:188
+#: src/components/ContextMenu/ContextMenu.tsx:233
 msgid "New Symlink"
 msgstr "Uusi symbolinen linkki"
 
-#: src/components/ContextMenu/ContextMenu.tsx:194
-msgid "Cut"
-msgstr "Leikkaa"
-
-#: src/components/ContextMenu/ContextMenu.tsx:195
-msgid "Copy"
-msgstr "Kopioi"
-
-#: src/components/ContextMenu/ContextMenu.tsx:199
-msgid "Paste"
-msgstr "Liitä"
-
-#: src/components/ContextMenu/ContextMenu.tsx:206
+#: src/components/ContextMenu/ContextMenu.tsx:251
 #: src/components/Dialogs/RenameDialog.tsx:87
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: src/components/ContextMenu/ContextMenu.tsx:207
-#: src/components/Dialogs/DeleteDialog.tsx:51
-#: src/components/Dialogs/DeleteDialog.tsx:82
-msgid "Delete"
-msgstr "Poista"
-
-#: src/components/ContextMenu/ContextMenu.tsx:221
+#: src/components/ContextMenu/ContextMenu.tsx:266
 msgid "Download as Archive"
 msgstr "Lataa arkistona"
 
-#: src/components/ContextMenu/ContextMenu.tsx:228
+#: src/components/ContextMenu/ContextMenu.tsx:273
+msgid "Extract Here"
+msgstr "Pura tähän"
+
+#: src/components/ContextMenu/ContextMenu.tsx:276
+msgid "Compress to..."
+msgstr "Pakkaa muotoon..."
+
+#: src/components/ContextMenu/ContextMenu.tsx:282
 #: src/components/Properties/PropertiesPanel.tsx:111
 #: src/components/Properties/PropertiesPanel.tsx:129
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: src/components/ContextMenu/ContextMenu.tsx:231
+#: src/components/ContextMenu/ContextMenu.tsx:285
 msgid "Bookmark This Folder"
 msgstr "Lisää tämä kansio kirjanmerkkeihin"
 
@@ -283,7 +433,7 @@ msgid "Failed to load properties"
 msgstr "Ominaisuuksien lataaminen epäonnistui"
 
 #: src/components/Properties/PropertiesPanel.tsx:157
-#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/FileBrowser/FileTable.tsx:61
 #: src/components/Dialogs/CreateDialog.tsx:100
 msgid "Name"
 msgstr "Nimi"
@@ -297,7 +447,7 @@ msgid "Type"
 msgstr "Tyyppi"
 
 #: src/components/Properties/PropertiesPanel.tsx:174
-#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/FileBrowser/FileTable.tsx:61
 msgid "Size"
 msgstr "Koko"
 
@@ -306,7 +456,7 @@ msgid "bytes"
 msgstr "tavua"
 
 #: src/components/Properties/PropertiesPanel.tsx:181
-#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/FileBrowser/FileTable.tsx:61
 msgid "Modified"
 msgstr "Muokattu"
 
@@ -321,7 +471,7 @@ msgstr "Luotu"
 #: src/components/Properties/PropertiesPanel.tsx:197
 #: src/components/Properties/PropertiesPanel.tsx:207
 #: src/components/Properties/PermissionEditor.tsx:49
-#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/FileBrowser/FileTable.tsx:61
 msgid "Owner"
 msgstr "Omistaja"
 
@@ -348,7 +498,7 @@ msgid "Link Target"
 msgstr "Linkin kohde"
 
 #: src/components/Properties/PropertiesPanel.tsx:268
-#: src/components/FileBrowser/FileTable.tsx:59
+#: src/components/FileBrowser/FileTable.tsx:61
 msgid "Permissions"
 msgstr "Oikeudet"
 
@@ -384,21 +534,21 @@ msgstr "Oikeudet päivitetty"
 msgid "Failed to update permissions"
 msgstr "Oikeuksien päivittäminen epäonnistui"
 
-#: src/components/FileBrowser/FileTable.tsx:196
-#: src/components/FileBrowser/FileGrid.tsx:124
+#: src/components/FileBrowser/FileTable.tsx:221
+#: src/components/FileBrowser/FileGrid.tsx:131
 msgid "No files"
 msgstr "Ei tiedostoja"
 
-#: src/components/FileBrowser/FileTable.tsx:201
-#: src/components/FileBrowser/FileGrid.tsx:129
+#: src/components/FileBrowser/FileTable.tsx:226
+#: src/components/FileBrowser/FileGrid.tsx:136
 msgid "This directory is empty."
 msgstr "Tämä hakemisto on tyhjä."
 
-#: src/components/FileBrowser/FileTable.tsx:234
+#: src/components/FileBrowser/FileTable.tsx:260
 msgid "File listing"
 msgstr "Tiedostoluettelo"
 
-#: src/components/FileBrowser/FileTable.tsx:242
+#: src/components/FileBrowser/FileTable.tsx:268
 msgid "Select all"
 msgstr "Valitse kaikki"
 
@@ -417,12 +567,6 @@ msgstr "Haluatko varmasti poistaa"
 #: src/components/Dialogs/DeleteDialog.tsx:63
 msgid "This will permanently delete the directory and all its contents."
 msgstr "Tämä poistaa hakemiston ja kaiken sen sisällön pysyvästi."
-
-#: src/components/Dialogs/DeleteDialog.tsx:85
-#: src/components/Dialogs/CreateDialog.tsx:140
-#: src/components/Dialogs/RenameDialog.tsx:115
-msgid "Cancel"
-msgstr "Peruuta"
 
 #: src/components/Dialogs/CreateDialog.tsx:29
 msgid "New Symbolic Link"
@@ -471,22 +615,70 @@ msgstr "OK"
 msgid "New name"
 msgstr "Uusi nimi"
 
-#: src/components/Upload/UploadZone.tsx:134
-msgid "Drop files here to upload"
-msgstr "Pudota tiedostot tähän lähettääksesi"
+#: src/components/Upload/UploadZone.tsx:71
+msgid "Drop files or folders here to upload"
+msgstr "Pudota tiedostoja tai kansioita tähän ladataksesi"
 
-#: src/components/Upload/UploadZone.tsx:144
-msgid "Uploading $0 of $1 files..."
-msgstr "Lähetetään tiedostoa $0 / $1..."
+#: src/components/Upload/UploadPanel.tsx:222
+msgid "$0 of $1 files uploaded successfully"
+msgstr "$0/$1 tiedostoa lähetetty onnistuneesti"
 
-#: src/components/Upload/UploadZone.tsx:145
-msgid "$0 of $1"
-msgstr "$0 / $1"
+#: src/components/Upload/UploadPanel.tsx:223
+#: src/components/Upload/UploadPanel.tsx:283
+#: src/components/Upload/UploadPanel.tsx:310
+msgid "Upload complete"
+msgstr "Lähetys valmis"
 
-#: src/components/Upload/UploadZone.tsx:154
-msgid "Upload failed"
-msgstr "Lähetys epäonnistui"
+#: src/components/Upload/UploadPanel.tsx:223
+msgid "Upload finished with errors"
+msgstr "Lähetys päättyi virheisiin"
 
-#: src/components/Upload/UploadZone.tsx:160
-msgid "Close"
-msgstr "Sulje"
+#: src/components/Upload/UploadPanel.tsx:279
+#: src/components/Upload/UploadPanel.tsx:287
+msgid "$0/$1 files"
+msgstr "$0/$1 tiedostoa"
+
+#: src/components/Upload/UploadPanel.tsx:308
+msgid "Uploading $0/$1 files"
+msgstr "Lähetetään $0/$1 tiedostoa"
+
+#: src/components/Upload/UploadPanel.tsx:311
+msgid "Uploaded $0/$1 files"
+msgstr "Lähetetty $0/$1 tiedostoa"
+
+#: src/components/Upload/UploadPanel.tsx:336
+msgid "Total upload progress"
+msgstr "Kokonaislähetyksen edistyminen"
+
+#: src/components/Upload/UploadPanel.tsx:365
+msgid "Retry"
+msgstr "Yritä uudelleen"
+
+#: src/components/Upload/UploadPanel.tsx:375
+msgid "Upload progress for $0"
+msgstr "Lähetyksen edistyminen: $0"
+
+#: src/manifest.json
+msgid "File Browser"
+msgstr "Tiedostoselain"
+
+#~ msgid "Uploading..."
+#~ msgstr "Lähetetään..."
+
+#~ msgid "Upload"
+#~ msgstr "Lähetä"
+
+#~ msgid "Search files..."
+#~ msgstr "Hae tiedostoja..."
+
+#~ msgid "Drop files here to upload"
+#~ msgstr "Pudota tiedostot tähän lähettääksesi"
+
+#~ msgid "Uploading $0 of $1 files..."
+#~ msgstr "Lähetetään tiedostoa $0 / $1..."
+
+#~ msgid "$0 of $1"
+#~ msgstr "$0 / $1"
+
+#~ msgid "Upload failed"
+#~ msgstr "Lähetys epäonnistui"

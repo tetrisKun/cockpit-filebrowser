@@ -22,6 +22,8 @@ import { ContextMenu } from '../ContextMenu/ContextMenu';
 import { CreateDialog } from '../Dialogs/CreateDialog';
 import { DeleteDialog } from '../Dialogs/DeleteDialog';
 import { RenameDialog } from '../Dialogs/RenameDialog';
+import { CompressDialog } from '../Archive/CompressDialog';
+import { archiveManager } from '../Archive/archive-manager';
 
 const _ = cockpit.gettext;
 
@@ -74,6 +76,7 @@ export const FileTable: React.FC = () => {
     const [createDialogType, setCreateDialogType] = useState<'file' | 'directory' | 'link' | null>(null);
     const [renameEntry, setRenameEntry] = useState<FileEntry | null>(null);
     const [deleteEntry, setDeleteEntry] = useState<FileEntry | null>(null);
+    const [compressInfo, setCompressInfo] = useState<{ paths: string[]; parentDir: string } | null>(null);
 
     // Map our sort field to column index
     const sortFieldToIndex = (field: SortField): number => {
@@ -185,6 +188,10 @@ export const FileTable: React.FC = () => {
         setDeleteEntry(entry);
     }, []);
 
+    const handleCompressDialog = useCallback((paths: string[], parentDir: string) => {
+        setCompressInfo({ paths, parentDir });
+    }, []);
+
     const isSelected = useCallback((entry: FileEntry): boolean => {
         return state.selectedEntries.has(entry.path);
     }, [state.selectedEntries]);
@@ -230,6 +237,7 @@ export const FileTable: React.FC = () => {
                         onCreateDialog={handleCreateDialog}
                         onRenameDialog={handleRenameDialog}
                         onDeleteDialog={handleDeleteDialog}
+                        onCompressDialog={handleCompressDialog}
                     />
                 )}
 
@@ -333,6 +341,7 @@ export const FileTable: React.FC = () => {
                     onCreateDialog={handleCreateDialog}
                     onRenameDialog={handleRenameDialog}
                     onDeleteDialog={handleDeleteDialog}
+                    onCompressDialog={handleCompressDialog}
                 />
             )}
 
@@ -356,6 +365,17 @@ export const FileTable: React.FC = () => {
                     entry={deleteEntry}
                     isOpen={true}
                     onClose={() => setDeleteEntry(null)}
+                />
+            )}
+            {compressInfo && (
+                <CompressDialog
+                    isOpen={true}
+                    onClose={() => {
+                        setCompressInfo(null);
+                        archiveManager.onQueueDone(() => navigate(state.currentPath));
+                    }}
+                    paths={compressInfo.paths}
+                    parentDir={compressInfo.parentDir}
                 />
             )}
         </div>

@@ -6,9 +6,31 @@
 }
 
 .context-menu {
-    min-width: 180px;
+    min-width: 160px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
     border-radius: var(--pf-t--global--border--radius--small, 3px);
     background-color: var(--pf-t--global--background--color--primary--default, #fff);
+
+    /* Compact menu items */
+    .pf-v6-c-menu__content {
+        padding: 4px 0;
+    }
+
+    .pf-v6-c-menu__list-item {
+        --pf-v6-c-menu__list-item--PaddingTop: 0;
+        --pf-v6-c-menu__list-item--PaddingBottom: 0;
+    }
+
+    .pf-v6-c-menu__item {
+        --pf-v6-c-menu__item--PaddingTop: 4px;
+        --pf-v6-c-menu__item--PaddingBottom: 4px;
+        --pf-v6-c-menu__item--PaddingRight: 16px;
+        --pf-v6-c-menu__item--PaddingLeft: 12px;
+        font-size: 13px;
+    }
+
+    .pf-v6-c-divider {
+        margin: 2px 0;
+    }
 }

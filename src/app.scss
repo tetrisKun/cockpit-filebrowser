@@ -71,6 +71,119 @@ html, body, #app {
     overflow-y: auto;
 }
 
+/* Terminal Overlay */
+.terminal-overlay__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.terminal-overlay__panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(95vw, 1200px);
+    height: 95vh;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-overlay__instance {
+    flex-direction: column;
+    height: 100%;
+    background: var(--pf-t--global--background--color--primary--default, #fff);
+}
+
+.terminal-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px 4px 12px;
+    background: var(--pf-t--global--background--color--secondary--default, #f0f0f0);
+    border-bottom: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+    flex-shrink: 0;
+
+    &__title {
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        flex-shrink: 0;
+    }
+}
+
+.terminal-modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    padding: 0 !important;
+}
+
+.terminal-iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+    min-height: 0;
+}
+
+/* Terminal minimized bars container */
+.terminal-minimized-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    z-index: 1000;
+}
+
+.terminal-minimized-bar {
+    background: var(--pf-t--global--background--color--secondary--default, #f0f0f0);
+    border: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 6px 8px 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+
+    &:hover {
+        background: var(--pf-t--global--background--color--secondary--hover, #e0e0e0);
+    }
+
+    &__close {
+        margin-left: 2px;
+        padding: 2px !important;
+    }
+}
+
+/* Toolbar rows: vertically center all groups */
+.toolbar-section .pf-v6-c-toolbar__content-section {
+    align-items: center !important;
+}
+
 /* ===== Responsive toolbar below 768px ===== */
 @media (max-width: 767px) {
     /* First toolbar row: allow wrapping so path bar goes to its own line */
@@ -85,15 +198,4 @@ html, body, #app {
         padding: 0.25rem 0.5rem !important;
     }
 
-    /* Action buttons: icon-only (hide text, keep icon) */
-    .toolbar-section .pf-v6-c-button.pf-m-secondary {
-        font-size: 0 !important;
-        gap: 0 !important;
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-    }
-
-    .toolbar-section .pf-v6-c-button.pf-m-secondary .pf-v6-c-button__icon {
-        font-size: 1rem !important;
-    }
 }
