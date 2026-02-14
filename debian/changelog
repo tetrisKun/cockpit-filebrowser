@@ -1,0 +1,12 @@
+cockpit-filebrowser (0.1.0-1) unstable; urgency=medium
+
+  * Initial release
+  * File browsing with table and grid views
+  * Monaco editor integration for file editing
+  * Upload files and directories with progress tracking
+  * Archive compress/extract (tar, tar.gz, zip, 7z)
+  * Clipboard operations (cut, copy, paste)
+  * File properties and permissions management
+  * 20 language translations
+
+ -- tetrisKun <tetrisKun@users.noreply.github.com>  Fri, 14 Feb 2026 15:00:00 +0800

@@ -1,7 +1,15 @@
 node_modules/
 dist/
 pkg/
+output/
 package-lock.json
 *.pyc
 .cache
 .DS_Store
+*.deb
+*.rpm
+*.tar.gz
+*.mo
+po/*.po~
+.idea/
+messages.mo

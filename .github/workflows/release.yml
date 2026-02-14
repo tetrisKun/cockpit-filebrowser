@@ -1,0 +1,66 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build .deb package
+        run: |
+          VERSION=$(node -e "console.log(require('./package.json').version)")
+          mkdir -p output/deb-build/DEBIAN
+          mkdir -p output/deb-build/usr/share/cockpit/filebrowser
+          cp -r dist/* output/deb-build/usr/share/cockpit/filebrowser/
+          cat > output/deb-build/DEBIAN/control << EOF
+          Package: cockpit-filebrowser
+          Version: ${VERSION}
+          Architecture: all
+          Maintainer: tetrisKun <tetrisKun@users.noreply.github.com>
+          Depends: cockpit (>= 137)
+          Recommends: tar, zip, unzip, p7zip-full
+          Section: admin
+          Priority: optional
+          Homepage: https://github.com/tetrisKun/cockpit-filebrowser
+          Description: Modern file browser plugin for Cockpit web console
+           A full-featured file browser for the Cockpit web administration interface.
+          EOF
+          dpkg-deb --build output/deb-build output/cockpit-filebrowser_${VERSION}_all.deb
+
+      - name: Build .rpm package
+        run: |
+          sudo apt-get update && sudo apt-get install -y rpm
+          VERSION=$(node -e "console.log(require('./package.json').version)")
+          mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          mkdir -p rpmbuild/tarball/cockpit-filebrowser-${VERSION}/share/cockpit/filebrowser
+          cp -r dist/* rpmbuild/tarball/cockpit-filebrowser-${VERSION}/share/cockpit/filebrowser/
+          tar czf rpmbuild/SOURCES/cockpit-filebrowser-${VERSION}.tar.gz \
+            -C rpmbuild/tarball cockpit-filebrowser-${VERSION}
+          cp cockpit-filebrowser.spec rpmbuild/SPECS/
+          rpmbuild -bb --define "_topdir $(pwd)/rpmbuild" rpmbuild/SPECS/cockpit-filebrowser.spec
+          cp rpmbuild/RPMS/noarch/*.rpm output/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            output/*.deb
+            output/*.rpm
+          generate_release_notes: true

@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	npm install
+	npm run build
+
+override_dh_auto_install:
+	mkdir -p debian/cockpit-filebrowser/usr/share/cockpit/filebrowser
+	cp -r dist/* debian/cockpit-filebrowser/usr/share/cockpit/filebrowser/
+
+override_dh_auto_test:

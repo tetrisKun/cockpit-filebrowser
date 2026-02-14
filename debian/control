@@ -1,0 +1,25 @@
+Source: cockpit-filebrowser
+Section: admin
+Priority: optional
+Maintainer: tetrisKun <tetrisKun@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13), nodejs (>= 16), npm
+Standards-Version: 4.6.2
+Homepage: https://github.com/tetrisKun/cockpit-filebrowser
+Vcs-Git: https://github.com/tetrisKun/cockpit-filebrowser.git
+Vcs-Browser: https://github.com/tetrisKun/cockpit-filebrowser
+Rules-Requires-Root: no
+
+Package: cockpit-filebrowser
+Architecture: all
+Depends: cockpit (>= 137), ${misc:Depends}
+Recommends: tar, zip, unzip, p7zip-full
+Description: Modern file browser plugin for Cockpit web console
+ A full-featured file browser for the Cockpit web administration interface.
+ Features include:
+  - Browse, create, rename, delete files and directories
+  - Edit files with Monaco editor (syntax highlighting)
+  - Upload files and directories with progress tracking
+  - Compress and extract archives (tar, tar.gz, zip, 7z)
+  - Clipboard operations (cut, copy, paste)
+  - File properties and permissions management
+  - 20 language translations

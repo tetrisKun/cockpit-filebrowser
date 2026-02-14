@@ -1,6 +1,6 @@
 PACKAGE_NAME = cockpit-filebrowser
 VERSION = $(shell node -e "console.log(require('./package.json').version)")
-PREFIX ?= /usr/local
+PREFIX ?= /usr
 
 all: dist
 
@@ -43,7 +43,28 @@ update-po: pot
 		msgmerge --update po/$$lang.po po/$(PACKAGE_NAME).pot; \
 	done
 
+# Packaging
+srpm: dist/$(PACKAGE_NAME)-$(VERSION).tar.gz
+	rpmbuild -bs \
+		--define "_sourcedir $(CURDIR)/dist" \
+		--define "_srcrpmdir $(CURDIR)" \
+		$(PACKAGE_NAME).spec
+
+rpm: dist/$(PACKAGE_NAME)-$(VERSION).tar.gz
+	rpmbuild -bb \
+		--define "_sourcedir $(CURDIR)/dist" \
+		--define "_rpmdir $(CURDIR)" \
+		$(PACKAGE_NAME).spec
+
+dist/$(PACKAGE_NAME)-$(VERSION).tar.gz: dist
+	tar czf $@ \
+		--transform 's,^dist,$(PACKAGE_NAME)-$(VERSION)/share/cockpit/filebrowser,' \
+		dist/*
+
+deb: dist
+	dpkg-buildpackage -us -uc -b
+
 clean:
 	rm -rf dist/ node_modules/
 
-.PHONY: all watch install devel-install devel-uninstall pot update-po clean
+.PHONY: all watch install devel-install devel-uninstall pot update-po srpm rpm deb clean
